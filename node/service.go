@@ -19,11 +19,11 @@ package node
 import (
 	"reflect"
 
-	"github.com/ethereum/go-ethereum/accounts"
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/ethereum/go-ethereum/event"
-	"github.com/ethereum/go-ethereum/p2p"
-	"github.com/ethereum/go-ethereum/rpc"
+	"github.com/nebulaai/nbai-node/accounts"
+	"github.com/nebulaai/nbai-node/ethdb"
+	"github.com/nebulaai/nbai-node/event"
+	"github.com/nebulaai/nbai-node/p2p"
+	"github.com/nebulaai/nbai-node/rpc"
 )
 
 // ServiceContext is a collection of service independent options inherited from

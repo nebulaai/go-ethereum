@@ -21,9 +21,9 @@ import (
 	"fmt"
 	"io/ioutil"
 
-	"github.com/ethereum/go-ethereum/accounts/keystore"
-	"github.com/ethereum/go-ethereum/cmd/utils"
-	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/nebulaai/nbai-node/accounts/keystore"
+	"github.com/nebulaai/nbai-node/cmd/utils"
+	"github.com/nebulaai/nbai-node/crypto"
 	"gopkg.in/urfave/cli.v1"
 )
 

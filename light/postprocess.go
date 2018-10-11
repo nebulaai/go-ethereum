@@ -24,16 +24,16 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/bitutil"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/core/rawdb"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/params"
-	"github.com/ethereum/go-ethereum/rlp"
-	"github.com/ethereum/go-ethereum/trie"
+	"github.com/nebulaai/nbai-node/common"
+	"github.com/nebulaai/nbai-node/common/bitutil"
+	"github.com/nebulaai/nbai-node/core"
+	"github.com/nebulaai/nbai-node/core/rawdb"
+	"github.com/nebulaai/nbai-node/core/types"
+	"github.com/nebulaai/nbai-node/ethdb"
+	"github.com/nebulaai/nbai-node/log"
+	"github.com/nebulaai/nbai-node/params"
+	"github.com/nebulaai/nbai-node/rlp"
+	"github.com/nebulaai/nbai-node/trie"
 )
 
 // IndexerConfig includes a set of configs for chain indexers.

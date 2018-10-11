@@ -22,9 +22,9 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/ethereum/go-ethereum/metrics"
-	"github.com/ethereum/go-ethereum/swarm/log"
-	"github.com/ethereum/go-ethereum/swarm/storage"
+	"github.com/nebulaai/nbai-node/metrics"
+	"github.com/nebulaai/nbai-node/swarm/log"
+	"github.com/nebulaai/nbai-node/swarm/storage"
 )
 
 const (

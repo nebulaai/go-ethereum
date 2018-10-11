@@ -21,11 +21,11 @@ import (
 
 	"encoding/json"
 
-	"github.com/ethereum/go-ethereum/accounts"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/internal/ethapi"
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/nebulaai/nbai-node/accounts"
+	"github.com/nebulaai/nbai-node/common"
+	"github.com/nebulaai/nbai-node/common/hexutil"
+	"github.com/nebulaai/nbai-node/internal/ethapi"
+	"github.com/nebulaai/nbai-node/log"
 )
 
 type AuditLogger struct {

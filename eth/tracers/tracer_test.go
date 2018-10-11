@@ -24,9 +24,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/vm"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/nebulaai/nbai-node/common"
+	"github.com/nebulaai/nbai-node/core/vm"
+	"github.com/nebulaai/nbai-node/params"
 )
 
 type account struct{}

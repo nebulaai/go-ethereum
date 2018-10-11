@@ -25,17 +25,17 @@ import (
 	"os"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/swarm/api"
-	"github.com/ethereum/go-ethereum/swarm/storage/feed/lookup"
-	"github.com/ethereum/go-ethereum/swarm/testutil"
+	"github.com/nebulaai/nbai-node/swarm/api"
+	"github.com/nebulaai/nbai-node/swarm/storage/feed/lookup"
+	"github.com/nebulaai/nbai-node/swarm/testutil"
 
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/swarm/storage/feed"
+	"github.com/nebulaai/nbai-node/crypto"
+	"github.com/nebulaai/nbai-node/swarm/storage/feed"
 
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/log"
-	swarm "github.com/ethereum/go-ethereum/swarm/api/client"
-	swarmhttp "github.com/ethereum/go-ethereum/swarm/api/http"
+	"github.com/nebulaai/nbai-node/common/hexutil"
+	"github.com/nebulaai/nbai-node/log"
+	swarm "github.com/nebulaai/nbai-node/swarm/api/client"
+	swarmhttp "github.com/nebulaai/nbai-node/swarm/api/http"
 )
 
 func TestCLIFeedUpdate(t *testing.T) {

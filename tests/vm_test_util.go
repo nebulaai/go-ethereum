@@ -22,15 +22,15 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/common/math"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/core/state"
-	"github.com/ethereum/go-ethereum/core/vm"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/nebulaai/nbai-node/common"
+	"github.com/nebulaai/nbai-node/common/hexutil"
+	"github.com/nebulaai/nbai-node/common/math"
+	"github.com/nebulaai/nbai-node/core"
+	"github.com/nebulaai/nbai-node/core/state"
+	"github.com/nebulaai/nbai-node/core/vm"
+	"github.com/nebulaai/nbai-node/crypto"
+	"github.com/nebulaai/nbai-node/ethdb"
+	"github.com/nebulaai/nbai-node/params"
 )
 
 // VMTest checks EVM execution without block or transaction context.

@@ -6,11 +6,11 @@ import (
 	"runtime/debug"
 	"strings"
 
-	"github.com/ethereum/go-ethereum/metrics"
-	"github.com/ethereum/go-ethereum/swarm/api"
-	"github.com/ethereum/go-ethereum/swarm/log"
-	"github.com/ethereum/go-ethereum/swarm/sctx"
-	"github.com/ethereum/go-ethereum/swarm/spancontext"
+	"github.com/nebulaai/nbai-node/metrics"
+	"github.com/nebulaai/nbai-node/swarm/api"
+	"github.com/nebulaai/nbai-node/swarm/log"
+	"github.com/nebulaai/nbai-node/swarm/sctx"
+	"github.com/nebulaai/nbai-node/swarm/spancontext"
 	"github.com/pborman/uuid"
 )
 

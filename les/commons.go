@@ -20,14 +20,14 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/eth"
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/ethereum/go-ethereum/light"
-	"github.com/ethereum/go-ethereum/p2p"
-	"github.com/ethereum/go-ethereum/p2p/enode"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/nebulaai/nbai-node/common"
+	"github.com/nebulaai/nbai-node/core"
+	"github.com/nebulaai/nbai-node/eth"
+	"github.com/nebulaai/nbai-node/ethdb"
+	"github.com/nebulaai/nbai-node/light"
+	"github.com/nebulaai/nbai-node/p2p"
+	"github.com/nebulaai/nbai-node/p2p/enode"
+	"github.com/nebulaai/nbai-node/params"
 )
 
 // lesCommons contains fields needed by both server and client.

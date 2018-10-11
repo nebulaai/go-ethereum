@@ -23,16 +23,16 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/contracts/ens"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/node"
-	"github.com/ethereum/go-ethereum/p2p/enode"
-	"github.com/ethereum/go-ethereum/swarm/log"
-	"github.com/ethereum/go-ethereum/swarm/network"
-	"github.com/ethereum/go-ethereum/swarm/pss"
-	"github.com/ethereum/go-ethereum/swarm/services/swap"
-	"github.com/ethereum/go-ethereum/swarm/storage"
+	"github.com/nebulaai/nbai-node/common"
+	"github.com/nebulaai/nbai-node/contracts/ens"
+	"github.com/nebulaai/nbai-node/crypto"
+	"github.com/nebulaai/nbai-node/node"
+	"github.com/nebulaai/nbai-node/p2p/enode"
+	"github.com/nebulaai/nbai-node/swarm/log"
+	"github.com/nebulaai/nbai-node/swarm/network"
+	"github.com/nebulaai/nbai-node/swarm/pss"
+	"github.com/nebulaai/nbai-node/swarm/services/swap"
+	"github.com/nebulaai/nbai-node/swarm/storage"
 )
 
 const (

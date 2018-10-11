@@ -19,10 +19,10 @@ package les
 import (
 	"context"
 
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/ethereum/go-ethereum/light"
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/nebulaai/nbai-node/core"
+	"github.com/nebulaai/nbai-node/ethdb"
+	"github.com/nebulaai/nbai-node/light"
+	"github.com/nebulaai/nbai-node/log"
 )
 
 // LesOdr implements light.OdrBackend

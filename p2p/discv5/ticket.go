@@ -25,10 +25,10 @@ import (
 	"sort"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/mclock"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/nebulaai/nbai-node/common"
+	"github.com/nebulaai/nbai-node/common/mclock"
+	"github.com/nebulaai/nbai-node/crypto"
+	"github.com/nebulaai/nbai-node/log"
 )
 
 const (

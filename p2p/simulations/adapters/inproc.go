@@ -23,13 +23,13 @@ import (
 	"net"
 	"sync"
 
-	"github.com/ethereum/go-ethereum/event"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/node"
-	"github.com/ethereum/go-ethereum/p2p"
-	"github.com/ethereum/go-ethereum/p2p/enode"
-	"github.com/ethereum/go-ethereum/p2p/simulations/pipes"
-	"github.com/ethereum/go-ethereum/rpc"
+	"github.com/nebulaai/nbai-node/event"
+	"github.com/nebulaai/nbai-node/log"
+	"github.com/nebulaai/nbai-node/node"
+	"github.com/nebulaai/nbai-node/p2p"
+	"github.com/nebulaai/nbai-node/p2p/enode"
+	"github.com/nebulaai/nbai-node/p2p/simulations/pipes"
+	"github.com/nebulaai/nbai-node/rpc"
 )
 
 // SimAdapter is a NodeAdapter which creates in-memory simulation nodes and

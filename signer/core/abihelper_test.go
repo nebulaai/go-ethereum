@@ -25,8 +25,8 @@ import (
 	"math/big"
 	"reflect"
 
-	"github.com/ethereum/go-ethereum/accounts/abi"
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/nebulaai/nbai-node/accounts/abi"
+	"github.com/nebulaai/nbai-node/common"
 )
 
 func verify(t *testing.T, jsondata, calldata string, exp []interface{}) {

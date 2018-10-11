@@ -29,21 +29,21 @@ import (
 	"time"
 
 	"github.com/elastic/gosigar"
-	"github.com/ethereum/go-ethereum/accounts"
-	"github.com/ethereum/go-ethereum/accounts/keystore"
-	"github.com/ethereum/go-ethereum/cmd/utils"
-	"github.com/ethereum/go-ethereum/console"
-	"github.com/ethereum/go-ethereum/eth"
-	"github.com/ethereum/go-ethereum/ethclient"
-	"github.com/ethereum/go-ethereum/internal/debug"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/metrics"
-	"github.com/ethereum/go-ethereum/node"
+	"github.com/nebulaai/nbai-node/accounts"
+	"github.com/nebulaai/nbai-node/accounts/keystore"
+	"github.com/nebulaai/nbai-node/cmd/utils"
+	"github.com/nebulaai/nbai-node/console"
+	"github.com/nebulaai/nbai-node/eth"
+	"github.com/nebulaai/nbai-node/ethclient"
+	"github.com/nebulaai/nbai-node/internal/debug"
+	"github.com/nebulaai/nbai-node/log"
+	"github.com/nebulaai/nbai-node/metrics"
+	"github.com/nebulaai/nbai-node/node"
 	"gopkg.in/urfave/cli.v1"
 )
 
 const (
-	clientIdentifier = "geth" // Client identifier to advertise over the network
+	clientIdentifier = "gnbai" // Client identifier to advertise over the network
 )
 
 var (

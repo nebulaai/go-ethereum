@@ -23,10 +23,10 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/rawdb"
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/nebulaai/nbai-node/common"
+	"github.com/nebulaai/nbai-node/core/rawdb"
+	"github.com/nebulaai/nbai-node/ethdb"
+	"github.com/nebulaai/nbai-node/params"
 )
 
 // Genesis block for nodes which don't care about the DAO fork (i.e. not configured)

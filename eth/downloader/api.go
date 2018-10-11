@@ -20,9 +20,9 @@ import (
 	"context"
 	"sync"
 
-	ethereum "github.com/ethereum/go-ethereum"
-	"github.com/ethereum/go-ethereum/event"
-	"github.com/ethereum/go-ethereum/rpc"
+	ethereum "github.com/nebulaai/nbai-node"
+	"github.com/nebulaai/nbai-node/event"
+	"github.com/nebulaai/nbai-node/rpc"
 )
 
 // PublicDownloaderAPI provides an API which gives information about the current synchronisation status.

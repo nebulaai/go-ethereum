@@ -20,11 +20,11 @@ package consensus
 import (
 	"math/big"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/state"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/params"
-	"github.com/ethereum/go-ethereum/rpc"
+	"github.com/nebulaai/nbai-node/common"
+	"github.com/nebulaai/nbai-node/core/state"
+	"github.com/nebulaai/nbai-node/core/types"
+	"github.com/nebulaai/nbai-node/params"
+	"github.com/nebulaai/nbai-node/rpc"
 )
 
 // ChainReader defines a small collection of methods needed to access the local

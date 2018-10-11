@@ -21,11 +21,11 @@ import (
 	"errors"
 	"math"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/consensus/ethash"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/nebulaai/nbai-node/common"
+	"github.com/nebulaai/nbai-node/common/hexutil"
+	"github.com/nebulaai/nbai-node/consensus/ethash"
+	"github.com/nebulaai/nbai-node/core"
+	"github.com/nebulaai/nbai-node/params"
 )
 
 // cppEthereumGenesisSpec represents the genesis specification format used by the

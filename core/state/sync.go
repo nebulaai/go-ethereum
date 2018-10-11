@@ -19,9 +19,9 @@ package state
 import (
 	"bytes"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/rlp"
-	"github.com/ethereum/go-ethereum/trie"
+	"github.com/nebulaai/nbai-node/common"
+	"github.com/nebulaai/nbai-node/rlp"
+	"github.com/nebulaai/nbai-node/trie"
 )
 
 // NewStateSync create a new state trie download scheduler.

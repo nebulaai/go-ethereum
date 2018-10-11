@@ -22,9 +22,9 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"github.com/ethereum/go-ethereum/p2p"
-	"github.com/ethereum/go-ethereum/p2p/nat"
-	"github.com/ethereum/go-ethereum/rpc"
+	"github.com/nebulaai/nbai-node/p2p"
+	"github.com/nebulaai/nbai-node/p2p/nat"
+	"github.com/nebulaai/nbai-node/rpc"
 )
 
 const (

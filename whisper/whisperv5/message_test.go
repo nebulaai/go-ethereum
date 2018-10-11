@@ -21,8 +21,8 @@ import (
 	mrand "math/rand"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/nebulaai/nbai-node/crypto"
+	"github.com/nebulaai/nbai-node/rlp"
 )
 
 func generateMessageParams() (*MessageParams, error) {

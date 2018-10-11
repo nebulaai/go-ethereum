@@ -26,9 +26,9 @@ import (
 	"regexp"
 	"strconv"
 
-	"github.com/ethereum/go-ethereum/common/math"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/p2p/enr"
+	"github.com/nebulaai/nbai-node/common/math"
+	"github.com/nebulaai/nbai-node/crypto"
+	"github.com/nebulaai/nbai-node/p2p/enr"
 )
 
 var incompleteNodeURL = regexp.MustCompile("(?i)^(?:enode://)?([0-9a-f]+)$")

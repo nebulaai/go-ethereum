@@ -27,8 +27,8 @@ import (
 	"testing/quick"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/nebulaai/nbai-node/common"
+	"github.com/nebulaai/nbai-node/crypto"
 )
 
 type nullTransport struct{}

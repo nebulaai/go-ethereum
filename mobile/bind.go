@@ -22,10 +22,10 @@ import (
 	"math/big"
 	"strings"
 
-	"github.com/ethereum/go-ethereum/accounts/abi"
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/nebulaai/nbai-node/accounts/abi"
+	"github.com/nebulaai/nbai-node/accounts/abi/bind"
+	"github.com/nebulaai/nbai-node/common"
+	"github.com/nebulaai/nbai-node/core/types"
 )
 
 // Signer is an interaface defining the callback when a contract requires a

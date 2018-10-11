@@ -21,9 +21,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/ethereum/go-ethereum/accounts/keystore"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/nebulaai/nbai-node/accounts/keystore"
+	"github.com/nebulaai/nbai-node/common"
+	"github.com/nebulaai/nbai-node/log"
 )
 
 // deployNode creates a new node configuration based on some user input.

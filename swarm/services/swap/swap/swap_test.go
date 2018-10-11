@@ -21,7 +21,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/nebulaai/nbai-node/common"
 )
 
 type testInPayment struct {

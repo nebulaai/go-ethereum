@@ -27,16 +27,16 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/mclock"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/event"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/p2p/discover"
-	"github.com/ethereum/go-ethereum/p2p/discv5"
-	"github.com/ethereum/go-ethereum/p2p/enode"
-	"github.com/ethereum/go-ethereum/p2p/nat"
-	"github.com/ethereum/go-ethereum/p2p/netutil"
+	"github.com/nebulaai/nbai-node/common"
+	"github.com/nebulaai/nbai-node/common/mclock"
+	"github.com/nebulaai/nbai-node/crypto"
+	"github.com/nebulaai/nbai-node/event"
+	"github.com/nebulaai/nbai-node/log"
+	"github.com/nebulaai/nbai-node/p2p/discover"
+	"github.com/nebulaai/nbai-node/p2p/discv5"
+	"github.com/nebulaai/nbai-node/p2p/enode"
+	"github.com/nebulaai/nbai-node/p2p/nat"
+	"github.com/nebulaai/nbai-node/p2p/netutil"
 )
 
 const (

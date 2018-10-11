@@ -26,9 +26,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/accounts"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/event"
+	"github.com/nebulaai/nbai-node/accounts"
+	"github.com/nebulaai/nbai-node/common"
+	"github.com/nebulaai/nbai-node/event"
 )
 
 var testSigData = make([]byte, 32)

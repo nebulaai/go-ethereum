@@ -26,13 +26,13 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/ethereum/go-ethereum/accounts"
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/ethereum/go-ethereum/event"
-	"github.com/ethereum/go-ethereum/internal/debug"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/p2p"
-	"github.com/ethereum/go-ethereum/rpc"
+	"github.com/nebulaai/nbai-node/accounts"
+	"github.com/nebulaai/nbai-node/ethdb"
+	"github.com/nebulaai/nbai-node/event"
+	"github.com/nebulaai/nbai-node/internal/debug"
+	"github.com/nebulaai/nbai-node/log"
+	"github.com/nebulaai/nbai-node/p2p"
+	"github.com/nebulaai/nbai-node/rpc"
 	"github.com/prometheus/prometheus/util/flock"
 )
 

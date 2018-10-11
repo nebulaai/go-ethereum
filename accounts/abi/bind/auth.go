@@ -22,10 +22,10 @@ import (
 	"io"
 	"io/ioutil"
 
-	"github.com/ethereum/go-ethereum/accounts/keystore"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/nebulaai/nbai-node/accounts/keystore"
+	"github.com/nebulaai/nbai-node/common"
+	"github.com/nebulaai/nbai-node/core/types"
+	"github.com/nebulaai/nbai-node/crypto"
 )
 
 // NewTransactor is a utility method to easily create a transaction signer from

@@ -19,10 +19,10 @@ package metrics
 import (
 	"time"
 
-	"github.com/ethereum/go-ethereum/cmd/utils"
-	gethmetrics "github.com/ethereum/go-ethereum/metrics"
-	"github.com/ethereum/go-ethereum/metrics/influxdb"
-	"github.com/ethereum/go-ethereum/swarm/log"
+	"github.com/nebulaai/nbai-node/cmd/utils"
+	gethmetrics "github.com/nebulaai/nbai-node/metrics"
+	"github.com/nebulaai/nbai-node/metrics/influxdb"
+	"github.com/nebulaai/nbai-node/swarm/log"
 	"gopkg.in/urfave/cli.v1"
 )
 
