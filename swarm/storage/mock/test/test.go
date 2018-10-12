@@ -25,9 +25,9 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/swarm/storage"
-	"github.com/ethereum/go-ethereum/swarm/storage/mock"
+	"github.com/nebulaai/nbai-node/common"
+	"github.com/nebulaai/nbai-node/swarm/storage"
+	"github.com/nebulaai/nbai-node/swarm/storage/mock"
 )
 
 // MockStore creates NodeStore instances from provided GlobalStorer,

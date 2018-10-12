@@ -22,12 +22,12 @@ import (
 	"os"
 	"strings"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/internal/ethapi"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/signer/core"
-	"github.com/ethereum/go-ethereum/signer/rules/deps"
-	"github.com/ethereum/go-ethereum/signer/storage"
+	"github.com/nebulaai/nbai-node/common"
+	"github.com/nebulaai/nbai-node/internal/ethapi"
+	"github.com/nebulaai/nbai-node/log"
+	"github.com/nebulaai/nbai-node/signer/core"
+	"github.com/nebulaai/nbai-node/signer/rules/deps"
+	"github.com/nebulaai/nbai-node/signer/storage"
 	"github.com/robertkrimen/otto"
 )
 

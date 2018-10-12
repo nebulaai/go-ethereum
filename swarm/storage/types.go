@@ -27,10 +27,10 @@ import (
 	"io"
 	"io/ioutil"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/crypto/sha3"
-	"github.com/ethereum/go-ethereum/swarm/bmt"
-	ch "github.com/ethereum/go-ethereum/swarm/chunk"
+	"github.com/nebulaai/nbai-node/common"
+	"github.com/nebulaai/nbai-node/crypto/sha3"
+	"github.com/nebulaai/nbai-node/swarm/bmt"
+	ch "github.com/nebulaai/nbai-node/swarm/chunk"
 )
 
 const MaxPO = 16

@@ -28,10 +28,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/rpc"
-	"github.com/ethereum/go-ethereum/swarm/api"
+	"github.com/nebulaai/nbai-node/common"
+	"github.com/nebulaai/nbai-node/crypto"
+	"github.com/nebulaai/nbai-node/rpc"
+	"github.com/nebulaai/nbai-node/swarm/api"
 )
 
 // TestNewSwarm validates Swarm fields in repsect to the provided configuration.

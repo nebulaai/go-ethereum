@@ -24,9 +24,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/metrics"
-	"github.com/ethereum/go-ethereum/swarm/api"
+	"github.com/nebulaai/nbai-node/log"
+	"github.com/nebulaai/nbai-node/metrics"
+	"github.com/nebulaai/nbai-node/swarm/api"
 )
 
 var (

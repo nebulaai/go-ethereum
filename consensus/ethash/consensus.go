@@ -25,15 +25,15 @@ import (
 	"time"
 
 	mapset "github.com/deckarep/golang-set"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/math"
-	"github.com/ethereum/go-ethereum/consensus"
-	"github.com/ethereum/go-ethereum/consensus/misc"
-	"github.com/ethereum/go-ethereum/core/state"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/crypto/sha3"
-	"github.com/ethereum/go-ethereum/params"
-	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/nebulaai/nbai-node/common"
+	"github.com/nebulaai/nbai-node/common/math"
+	"github.com/nebulaai/nbai-node/consensus"
+	"github.com/nebulaai/nbai-node/consensus/misc"
+	"github.com/nebulaai/nbai-node/core/state"
+	"github.com/nebulaai/nbai-node/core/types"
+	"github.com/nebulaai/nbai-node/crypto/sha3"
+	"github.com/nebulaai/nbai-node/params"
+	"github.com/nebulaai/nbai-node/rlp"
 )
 
 // Ethash proof-of-work protocol constants.

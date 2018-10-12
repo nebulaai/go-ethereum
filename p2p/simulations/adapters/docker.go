@@ -28,8 +28,8 @@ import (
 	"strings"
 
 	"github.com/docker/docker/pkg/reexec"
-	"github.com/ethereum/go-ethereum/node"
-	"github.com/ethereum/go-ethereum/p2p/enode"
+	"github.com/nebulaai/nbai-node/node"
+	"github.com/nebulaai/nbai-node/p2p/enode"
 )
 
 var (

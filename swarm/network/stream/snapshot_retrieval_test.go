@@ -23,14 +23,14 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/node"
-	"github.com/ethereum/go-ethereum/p2p/enode"
-	"github.com/ethereum/go-ethereum/p2p/simulations/adapters"
-	"github.com/ethereum/go-ethereum/swarm/log"
-	"github.com/ethereum/go-ethereum/swarm/network"
-	"github.com/ethereum/go-ethereum/swarm/network/simulation"
-	"github.com/ethereum/go-ethereum/swarm/state"
-	"github.com/ethereum/go-ethereum/swarm/storage"
+	"github.com/nebulaai/nbai-node/node"
+	"github.com/nebulaai/nbai-node/p2p/enode"
+	"github.com/nebulaai/nbai-node/p2p/simulations/adapters"
+	"github.com/nebulaai/nbai-node/swarm/log"
+	"github.com/nebulaai/nbai-node/swarm/network"
+	"github.com/nebulaai/nbai-node/swarm/network/simulation"
+	"github.com/nebulaai/nbai-node/swarm/state"
+	"github.com/nebulaai/nbai-node/swarm/storage"
 )
 
 //constants for random file generation

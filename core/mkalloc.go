@@ -34,8 +34,8 @@ import (
 	"sort"
 	"strconv"
 
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/nebulaai/nbai-node/core"
+	"github.com/nebulaai/nbai-node/rlp"
 )
 
 type allocItem struct{ Addr, Balance *big.Int }

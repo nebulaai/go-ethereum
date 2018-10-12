@@ -27,14 +27,14 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/contracts/chequebook"
-	"github.com/ethereum/go-ethereum/contracts/chequebook/contract"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/swarm/log"
-	"github.com/ethereum/go-ethereum/swarm/services/swap/swap"
+	"github.com/nebulaai/nbai-node/accounts/abi/bind"
+	"github.com/nebulaai/nbai-node/common"
+	"github.com/nebulaai/nbai-node/contracts/chequebook"
+	"github.com/nebulaai/nbai-node/contracts/chequebook/contract"
+	"github.com/nebulaai/nbai-node/core/types"
+	"github.com/nebulaai/nbai-node/crypto"
+	"github.com/nebulaai/nbai-node/swarm/log"
+	"github.com/nebulaai/nbai-node/swarm/services/swap/swap"
 )
 
 // SwAP       Swarm Accounting Protocol with

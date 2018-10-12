@@ -22,16 +22,16 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/core/rawdb"
-	"github.com/ethereum/go-ethereum/core/state"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/ethereum/go-ethereum/event"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/params"
-	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/nebulaai/nbai-node/common"
+	"github.com/nebulaai/nbai-node/core"
+	"github.com/nebulaai/nbai-node/core/rawdb"
+	"github.com/nebulaai/nbai-node/core/state"
+	"github.com/nebulaai/nbai-node/core/types"
+	"github.com/nebulaai/nbai-node/ethdb"
+	"github.com/nebulaai/nbai-node/event"
+	"github.com/nebulaai/nbai-node/log"
+	"github.com/nebulaai/nbai-node/params"
+	"github.com/nebulaai/nbai-node/rlp"
 )
 
 const (

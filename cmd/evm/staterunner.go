@@ -23,10 +23,10 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/ethereum/go-ethereum/core/state"
-	"github.com/ethereum/go-ethereum/core/vm"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/tests"
+	"github.com/nebulaai/nbai-node/core/state"
+	"github.com/nebulaai/nbai-node/core/vm"
+	"github.com/nebulaai/nbai-node/log"
+	"github.com/nebulaai/nbai-node/tests"
 
 	cli "gopkg.in/urfave/cli.v1"
 )

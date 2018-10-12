@@ -23,10 +23,10 @@ import (
 	"io"
 	"sync"
 
-	"github.com/ethereum/go-ethereum/metrics"
-	ch "github.com/ethereum/go-ethereum/swarm/chunk"
-	"github.com/ethereum/go-ethereum/swarm/log"
-	"github.com/ethereum/go-ethereum/swarm/spancontext"
+	"github.com/nebulaai/nbai-node/metrics"
+	ch "github.com/nebulaai/nbai-node/swarm/chunk"
+	"github.com/nebulaai/nbai-node/swarm/log"
+	"github.com/nebulaai/nbai-node/swarm/spancontext"
 	opentracing "github.com/opentracing/opentracing-go"
 	olog "github.com/opentracing/opentracing-go/log"
 )
