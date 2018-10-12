@@ -87,21 +87,7 @@ $ gnbai --your-favourite-flags dumpconfig
 
 *Note: This works only with gnbai v1.6.0 and above.*
 
-#### Docker quick start
-
-One of the quickest ways to get Ethereum up and running on your machine is by using Docker:
-
-```
-docker run -d --name ethereum-node -v /Users/alice/ethereum:/root \
-           -p 8545:8545 -p 30332:30332 \
-           ethereum/client-go
-```
-
-This will start gnbai in fast-sync mode with a DB memory allowance of 1GB just as the above command does.  It will also create a persistent volume in your home directory for saving your blockchain as well as map the default ports. There is also an `alpine` tag available for a slim version of the image.
-
-Do not forget `--rpcaddr 0.0.0.0`, if you want to access RPC from other containers and/or hosts. By default, `gnbai` binds to the local interface and RPC endpoints is not accessible from the outside.
-
-### Programatically interfacing Geth nodes
+### Programatically interfacing Gnbai nodes
 
 As a developer, sooner rather than later you'll want to start interacting with Geth and the Ethereum
 network via your own programs and not manually through the console. To aid this, Geth has built-in
