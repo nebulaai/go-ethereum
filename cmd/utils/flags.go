@@ -352,12 +352,12 @@ var (
 		Value: eth.DefaultConfig.MinerGasPrice,
 	}
 	MinerEtherbaseFlag = cli.StringFlag{
-		Name:  "miner.etherbase",
+		Name:  "miner.nbaibase",
 		Usage: "Public address for block mining rewards (default = first account)",
 		Value: "0",
 	}
 	MinerLegacyEtherbaseFlag = cli.StringFlag{
-		Name:  "etherbase",
+		Name:  "nbaibase",
 		Usage: "Public address for block mining rewards (default = first account, deprecated, use --miner.etherbase)",
 		Value: "0",
 	}
