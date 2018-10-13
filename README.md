@@ -27,12 +27,12 @@ The go-gnbai project comes with several wrappers/executables found in the `cmd` 
 
 | Command    | Description |
 |:----------:|-------------|
-| **`gnbai`** | Our main Ethereum CLI client. It is the entry point into the Ethereum network (main-, test- or private net), capable of running as a full node (default), archive node (retaining all historical state) or a light node (retrieving data live). It can be used by other processes as a gateway into the Ethereum network via JSON RPC endpoints exposed on top of HTTP, WebSocket and/or IPC transports. `gnbai --help` and the [CLI Wiki page](https://github.com/nebulaai/nbai-node/wiki/Command-Line-Options) for command line options. |
-| `abigen` | Source code generator to convert Ethereum contract definitions into easy to use, compile-time type-safe Go packages. It operates on plain [Ethereum contract ABIs](https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI) with expanded functionality if the contract bytecode is also available. However it also accepts Solidity source files, making development much more streamlined. Please see our [Native DApps](https://github.com/nebulaai/nbai-node/wiki/Native-DApps:-Go-bindings-to-Ethereum-contracts) wiki page for details. |
-| `bootnode` | Stripped down version of our Ethereum client implementation that only takes part in the network node discovery protocol, but does not run any of the higher level application protocols. It can be used as a lightweight bootstrap node to aid in finding peers in private networks. |
+| **`gnbai`** | Our main Nebula AI CLI client. It is the entry point into the Nebula AI network (main-, test- or private net), capable of running as a full node (default), archive node (retaining all historical state) or a light node (retrieving data live). It can be used by other processes as a gateway into the Ethereum network via JSON RPC endpoints exposed on top of HTTP, WebSocket and/or IPC transports. `gnbai --help` and the [CLI Wiki page](https://github.com/nebulaai/nbai-node/wiki/Command-Line-Options) for command line options. |
+| `abigen` | Source code generator to convert Nebula AI contract definitions into easy to use, compile-time type-safe Go packages. It operates on plain [Ethereum contract ABIs](https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI) with expanded functionality if the contract bytecode is also available. However it also accepts Solidity source files, making development much more streamlined. Please see our [Native DApps](https://github.com/nebulaai/nbai-node/wiki/Native-DApps:-Go-bindings-to-Ethereum-contracts) wiki page for details. |
+| `bootnode` | Stripped down version of our Nebula AI client implementation that only takes part in the network node discovery protocol, but does not run any of the higher level application protocols. It can be used as a lightweight bootstrap node to aid in finding peers in private networks. |
 | `evm` | Developer utility version of the EVM (Ethereum Virtual Machine) that is capable of running bytecode snippets within a configurable environment and execution mode. Its purpose is to allow isolated, fine-grained debugging of EVM opcodes (e.g. `evm --code 60ff60ff --debug`). |
 | `swarm`    | Swarm daemon and tools. This is the entrypoint for the Swarm network. `swarm --help` for command line options and subcommands. See [Swarm README](https://github.com/nebulaai/nbai-node/tree/master/swarm) for more information. |
-| `puppeth`    | a CLI wizard that aids in creating a new Ethereum network. |
+| `puppeth`    | a CLI wizard that aids in creating a new Nebula AI network. |
 
 ## Running gnbai
 
@@ -41,9 +41,9 @@ Going through all the possible command line flags is out of scope here (please c
 enumerated a few common parameter combos to get you up to speed quickly on how you can run your
 own Geth instance.
 
-### Full node on the main Ethereum network
+### Full node on the main Nebula AI network
 
-By far the most common scenario is people wanting to simply interact with the Ethereum network:
+By far the most common scenario is people wanting to simply interact with the Nebula AI network:
 create accounts; transfer funds; deploy and interact with contracts. For this particular use-case
 the user doesn't care about years-old historical data, so we can fast-sync quickly to the current
 state of the network. To do so:
@@ -55,10 +55,10 @@ $ gnbai console
 This command will:
 
  * Start gnbai in fast sync mode (default, can be changed with the `--syncmode` flag), causing it to
-   download more data in exchange for avoiding processing the entire history of the Ethereum network,
+   download more data in exchange for avoiding processing the entire history of the Nebula AI network,
    which is very CPU intensive.
  * Start up Geth's built-in interactive [JavaScript console](https://github.com/nebulaai/nbai-node/wiki/JavaScript-Console),
-   (via the trailing `console` subcommand) through which you can invoke all official [`web3` methods](https://github.com/ethereum/wiki/wiki/JavaScript-API)
+   (via the trailing `console` subcommand) through which you can invoke all official [`web3` methods](https://github.com/nbaiai/wiki/wiki/JavaScript-API)
    as well as Geth's own [management APIs](https://github.com/nebulaai/nbai-node/wiki/Management-APIs).
    This tool is optional and if you leave it out you can always attach to an already running Geth instance
    with `gnbai attach`.
@@ -89,9 +89,9 @@ $ gnbai --your-favourite-flags dumpconfig
 
 ### Programatically interfacing Gnbai nodes
 
-As a developer, sooner rather than later you'll want to start interacting with Geth and the Ethereum
+As a developer, sooner rather than later you'll want to start interacting with Geth and the Nebula AI
 network via your own programs and not manually through the console. To aid this, Geth has built-in
-support for a JSON-RPC based APIs ([standard APIs](https://github.com/ethereum/wiki/wiki/JSON-RPC) and
+support for a JSON-RPC based APIs ([standard APIs](https://github.com/nbaiai/wiki/wiki/JSON-RPC) and
 [Geth specific APIs](https://github.com/nebulaai/nbai-node/wiki/Management-APIs)). These can be
 exposed via HTTP, WebSockets and IPC (unix sockets on unix based platforms, and named pipes on Windows).
 
@@ -120,7 +120,7 @@ via HTTP, WS or IPC to a Geth node configured with the above flags and you'll ne
 on all transports. You can reuse the same connection for multiple requests!
 
 **Note: Please understand the security implications of opening up an HTTP/WS based transport before
-doing so! Hackers on the internet are actively trying to subvert Ethereum nodes with exposed APIs!
+doing so! Hackers on the internet are actively trying to subvert Nebula AI nodes with exposed APIs!
 Further, all browser tabs can access locally running webservers, so malicious webpages could try to
 subvert locally available APIs!**
 
@@ -184,7 +184,7 @@ $ bootnode --genkey=boot.key
 $ bootnode --nodekey=boot.key
 ```
 
-With the bootnode online, it will display an [`enode` URL](https://github.com/ethereum/wiki/wiki/enode-url-format)
+With the bootnode online, it will display an [`enode` URL](https://github.com/nbaiai/wiki/wiki/enode-url-format)
 that other nodes can use to connect to it and exchange peer information. Make sure to replace the
 displayed IP address information (most probably `[::]`) with your externally accessible IP to get the
 actual `enode` URL.
@@ -207,7 +207,7 @@ need to configure a miner to process transactions and create new blocks for you.
 
 #### Running a private miner
 
-Mining on the public Ethereum network is a complex task as it's only feasible using GPUs, requiring
+Mining on the public Nebula AI network is a complex task as it's only feasible using GPUs, requiring
 an OpenCL or CUDA enabled `ethminer` instance. For information on such a setup, please consult the
 [EtherMining subreddit](https://www.reddit.com/r/EtherMining/) and the [Genoil miner](https://github.com/Genoil/cpp-ethereum)
 repository.
