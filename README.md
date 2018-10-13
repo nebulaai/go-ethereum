@@ -39,7 +39,7 @@ The go-gnbai project comes with several wrappers/executables found in the `cmd` 
 Going through all the possible command line flags is out of scope here (please consult our
 [CLI Wiki page](https://github.com/nebulaai/nbai-node/wiki/Command-Line-Options)), but we've
 enumerated a few common parameter combos to get you up to speed quickly on how you can run your
-own Geth instance.
+own gnbai instance.
 
 ### Full node on the main Nebula AI network
 
@@ -57,18 +57,12 @@ This command will:
  * Start gnbai in fast sync mode (default, can be changed with the `--syncmode` flag), causing it to
    download more data in exchange for avoiding processing the entire history of the Nebula AI network,
    which is very CPU intensive.
- * Start up Geth's built-in interactive [JavaScript console](https://github.com/nebulaai/nbai-node/wiki/JavaScript-Console),
+ * Start up gnbai's built-in interactive [JavaScript console](https://github.com/nebulaai/nbai-node/wiki/JavaScript-Console),
    (via the trailing `console` subcommand) through which you can invoke all official [`web3` methods](https://github.com/nbaiai/wiki/wiki/JavaScript-API)
-   as well as Geth's own [management APIs](https://github.com/nebulaai/nbai-node/wiki/Management-APIs).
-   This tool is optional and if you leave it out you can always attach to an already running Geth instance
+   as well as gnbai's own [management APIs](https://github.com/nebulaai/nbai-node/wiki/Management-APIs).
+   This tool is optional and if you leave it out you can always attach to an already running gnbai instance
    with `gnbai attach`.
 
-### Full node on the Rinkeby test network
-
-The above test network is a cross client one based on the ethash proof-of-work consensus algorithm. As such, it has certain extra overhead and is more susceptible to reorganization attacks due to the network's low difficulty / security. Go Ethereum also supports connecting to a proof-of-authority based test network called [*Rinkeby*](https://www.rinkeby.io) (operated by members of the community). This network is lighter, more secure, but is only supported by go-gnbai.
-
-```
-$ gnbai --rinkeby console
 ```
 
 ### Configuration
@@ -89,13 +83,13 @@ $ gnbai --your-favourite-flags dumpconfig
 
 ### Programatically interfacing Gnbai nodes
 
-As a developer, sooner rather than later you'll want to start interacting with Geth and the Nebula AI
-network via your own programs and not manually through the console. To aid this, Geth has built-in
+As a developer, sooner rather than later you'll want to start interacting with gnbai and the Nebula AI
+network via your own programs and not manually through the console. To aid this, gnbai has built-in
 support for a JSON-RPC based APIs ([standard APIs](https://github.com/nbaiai/wiki/wiki/JSON-RPC) and
-[Geth specific APIs](https://github.com/nebulaai/nbai-node/wiki/Management-APIs)). These can be
+[gnbai specific APIs](https://github.com/nebulaai/nbai-node/wiki/Management-APIs)). These can be
 exposed via HTTP, WebSockets and IPC (unix sockets on unix based platforms, and named pipes on Windows).
 
-The IPC interface is enabled by default and exposes all the APIs supported by Geth, whereas the HTTP
+The IPC interface is enabled by default and exposes all the APIs supported by gnbai, whereas the HTTP
 and WS interfaces need to manually be enabled and only expose a subset of APIs due to security reasons.
 These can be turned on/off and configured as you'd expect.
 
@@ -116,7 +110,7 @@ HTTP based JSON-RPC API options:
   * `--ipcpath` Filename for IPC socket/pipe within the datadir (explicit paths escape it)
 
 You'll need to use your own programming environments' capabilities (libraries, tools, etc) to connect
-via HTTP, WS or IPC to a Geth node configured with the above flags and you'll need to speak [JSON-RPC](http://www.jsonrpc.org/specification)
+via HTTP, WS or IPC to a gnbai node configured with the above flags and you'll need to speak [JSON-RPC](http://www.jsonrpc.org/specification)
 on all transports. You can reuse the same connection for multiple requests!
 
 **Note: Please understand the security implications of opening up an HTTP/WS based transport before
@@ -166,35 +160,17 @@ configs:
 }
 ```
 
-With the genesis state defined in the above JSON file, you'll need to initialize **every** Geth node
+With the genesis state defined in the above JSON file, you'll need to initialize **every** gnbai node
 with it prior to starting it up to ensure all blockchain parameters are correctly set:
 
 ```
 $ gnbai init path/to/genesis.json
 ```
 
-#### Creating the rendezvous point
-
-With all nodes that you want to run initialized to the desired genesis state, you'll need to start a
-bootstrap node that others can use to find each other in your network and/or over the internet. The
-clean way is to configure and run a dedicated bootnode:
-
-```
-$ bootnode --genkey=boot.key
-$ bootnode --nodekey=boot.key
-```
-
-With the bootnode online, it will display an [`enode` URL](https://github.com/nbaiai/wiki/wiki/enode-url-format)
-that other nodes can use to connect to it and exchange peer information. Make sure to replace the
-displayed IP address information (most probably `[::]`) with your externally accessible IP to get the
-actual `enode` URL.
-
-*Note: You could also use a full fledged Geth node as a bootnode, but it's the less recommended way.*
-
 #### Starting up your member nodes
 
 With the bootnode operational and externally reachable (you can try `telnet <ip> <port>` to ensure
-it's indeed reachable), start every subsequent Geth node pointed to the bootnode for peer discovery
+it's indeed reachable), start every subsequent gnbai node pointed to the bootnode for peer discovery
 via the `--bootnodes` flag. It will probably also be desirable to keep the data directory of your
 private network separated, so do also specify a custom `--datadir` flag.
 
@@ -205,48 +181,6 @@ $ gnbai --datadir=path/to/custom/data/folder --bootnodes=<bootnode-enode-url-fro
 *Note: Since your network will be completely cut off from the main and test networks, you'll also
 need to configure a miner to process transactions and create new blocks for you.*
 
-#### Running a private miner
-
-Mining on the public Nebula AI network is a complex task as it's only feasible using GPUs, requiring
-an OpenCL or CUDA enabled `ethminer` instance. For information on such a setup, please consult the
-[EtherMining subreddit](https://www.reddit.com/r/EtherMining/) and the [Genoil miner](https://github.com/Genoil/cpp-ethereum)
-repository.
-
-In a private network setting however, a single CPU miner instance is more than enough for practical
-purposes as it can produce a stable stream of blocks at the correct intervals without needing heavy
-resources (consider running on a single thread, no need for multiple ones either). To start a Geth
-instance for mining, run it with all your usual flags, extended by:
-
-```
-$ gnbai <usual-flags> --mine --minerthreads=1 --etherbase=0x0000000000000000000000000000000000000000
-```
-
-Which will start mining blocks and transactions on a single CPU thread, crediting all proceedings to
-the account specified by `--etherbase`. You can further tune the mining by changing the default gas
-limit blocks converge to (`--targetgaslimit`) and the price transactions are accepted at (`--gasprice`).
-
-## Contribution
-
-Thank you for considering to help out with the source code! We welcome contributions from
-anyone on the internet, and are grateful for even the smallest of fixes!
-
-If you'd like to contribute to go-gnbai, please fork, fix, commit and send a pull request
-for the maintainers to review and merge into the main code base. If you wish to submit more
-complex changes though, please check up with the core devs first on [our gitter channel](https://gitter.im/nebulaai/nbai-node)
-to ensure those changes are in line with the general philosophy of the project and/or get some
-early feedback which can make both your efforts much lighter as well as our review and merge
-procedures quick and simple.
-
-Please make sure your contributions adhere to our coding guidelines:
-
- * Code must adhere to the official Go [formatting](https://golang.org/doc/effective_go.html#formatting) guidelines (i.e. uses [gofmt](https://golang.org/cmd/gofmt/)).
- * Code must be documented adhering to the official Go [commentary](https://golang.org/doc/effective_go.html#commentary) guidelines.
- * Pull requests need to be based on and opened against the `master` branch.
- * Commit messages should be prefixed with the package(s) they modify.
-   * E.g. "eth, rpc: make trace configs optional"
-
-Please see the [Developers' Guide](https://github.com/nebulaai/nbai-node/wiki/Developers'-Guide)
-for more details on configuring your environment, managing project dependencies and testing procedures.
 
 ## License
 
