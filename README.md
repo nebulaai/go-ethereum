@@ -79,7 +79,7 @@ To get an idea how the file should look like you can use the `dumpconfig` subcom
 $ gnbai --your-favourite-flags dumpconfig
 ```
 
-*Note: This works only with gnbai v1.6.0 and above.*
+*Note: This works only with gnbai v0.0.1 and above.*
 
 ### Programatically interfacing Gnbai nodes
 
