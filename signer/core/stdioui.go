@@ -21,9 +21,9 @@ import (
 	"context"
 	"sync"
 
-	"github.com/ethereum/go-ethereum/internal/ethapi"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/rpc"
+	"github.com/nebulaai/nbai-node/internal/ethapi"
+	"github.com/nebulaai/nbai-node/log"
+	"github.com/nebulaai/nbai-node/rpc"
 )
 
 type StdIOUI struct {

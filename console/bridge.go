@@ -23,9 +23,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ethereum/go-ethereum/accounts/usbwallet"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/rpc"
+	"github.com/nebulaai/nbai-node/accounts/usbwallet"
+	"github.com/nebulaai/nbai-node/log"
+	"github.com/nebulaai/nbai-node/rpc"
 	"github.com/robertkrimen/otto"
 )
 

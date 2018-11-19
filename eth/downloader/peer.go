@@ -29,9 +29,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/event"
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/nebulaai/nbai-node/common"
+	"github.com/nebulaai/nbai-node/event"
+	"github.com/nebulaai/nbai-node/log"
 )
 
 const (

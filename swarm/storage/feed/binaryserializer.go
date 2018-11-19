@@ -16,7 +16,7 @@
 
 package feed
 
-import "github.com/ethereum/go-ethereum/common/hexutil"
+import "github.com/nebulaai/nbai-node/common/hexutil"
 
 type binarySerializer interface {
 	binaryPut(serializedData []byte) error

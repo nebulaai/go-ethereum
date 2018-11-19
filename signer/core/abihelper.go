@@ -22,8 +22,8 @@ import (
 	"io/ioutil"
 	"strings"
 
-	"github.com/ethereum/go-ethereum/accounts/abi"
-	"github.com/ethereum/go-ethereum/common"
+	"github.com/nebulaai/nbai-node/accounts/abi"
+	"github.com/nebulaai/nbai-node/common"
 
 	"bytes"
 	"os"

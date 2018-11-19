@@ -24,9 +24,9 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/swarm/api"
-	swarm "github.com/ethereum/go-ethereum/swarm/api/client"
-	"github.com/ethereum/go-ethereum/swarm/testutil"
+	"github.com/nebulaai/nbai-node/swarm/api"
+	swarm "github.com/nebulaai/nbai-node/swarm/api/client"
+
 )
 
 // TestManifestChange tests manifest add, update and remove

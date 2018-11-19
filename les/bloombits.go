@@ -19,8 +19,8 @@ package les
 import (
 	"time"
 
-	"github.com/ethereum/go-ethereum/common/bitutil"
-	"github.com/ethereum/go-ethereum/light"
+	"github.com/nebulaai/nbai-node/common/bitutil"
+	"github.com/nebulaai/nbai-node/light"
 )
 
 const (

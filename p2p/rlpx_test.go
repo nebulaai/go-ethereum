@@ -32,11 +32,11 @@ import (
 	"time"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/crypto/ecies"
-	"github.com/ethereum/go-ethereum/crypto/sha3"
-	"github.com/ethereum/go-ethereum/p2p/simulations/pipes"
-	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/nebulaai/nbai-node/crypto"
+	"github.com/nebulaai/nbai-node/crypto/ecies"
+	"github.com/nebulaai/nbai-node/crypto/sha3"
+	"github.com/nebulaai/nbai-node/p2p/simulations/pipes"
+	"github.com/nebulaai/nbai-node/rlp"
 )
 
 func TestSharedSecret(t *testing.T) {

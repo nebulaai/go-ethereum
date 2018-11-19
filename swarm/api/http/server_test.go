@@ -38,18 +38,18 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/swarm/storage/feed/lookup"
+	"github.com/nebulaai/nbai-node/swarm/storage/feed/lookup"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/swarm/api"
-	swarm "github.com/ethereum/go-ethereum/swarm/api/client"
-	"github.com/ethereum/go-ethereum/swarm/multihash"
-	"github.com/ethereum/go-ethereum/swarm/storage"
-	"github.com/ethereum/go-ethereum/swarm/storage/feed"
-	"github.com/ethereum/go-ethereum/swarm/testutil"
+	"github.com/nebulaai/nbai-node/common"
+	"github.com/nebulaai/nbai-node/core/types"
+	"github.com/nebulaai/nbai-node/crypto"
+	"github.com/nebulaai/nbai-node/log"
+	"github.com/nebulaai/nbai-node/swarm/api"
+	swarm "github.com/nebulaai/nbai-node/swarm/api/client"
+	"github.com/nebulaai/nbai-node/swarm/multihash"
+	"github.com/nebulaai/nbai-node/swarm/storage"
+	"github.com/nebulaai/nbai-node/swarm/storage/feed"
+	"github.com/nebulaai/nbai-node/swarm/testutil"
 )
 
 func init() {

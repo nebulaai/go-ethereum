@@ -19,10 +19,10 @@ package rawdb
 import (
 	"encoding/json"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/params"
-	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/nebulaai/nbai-node/common"
+	"github.com/nebulaai/nbai-node/log"
+	"github.com/nebulaai/nbai-node/params"
+	"github.com/nebulaai/nbai-node/rlp"
 )
 
 // ReadDatabaseVersion retrieves the version number of the database.

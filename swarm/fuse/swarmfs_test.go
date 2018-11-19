@@ -29,10 +29,10 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/swarm/api"
-	"github.com/ethereum/go-ethereum/swarm/storage"
+	"github.com/nebulaai/nbai-node/swarm/api"
+	"github.com/nebulaai/nbai-node/swarm/storage"
 
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/nebulaai/nbai-node/log"
 
 	colorable "github.com/mattn/go-colorable"
 )

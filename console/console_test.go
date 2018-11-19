@@ -26,12 +26,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/consensus/ethash"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/eth"
-	"github.com/ethereum/go-ethereum/internal/jsre"
-	"github.com/ethereum/go-ethereum/node"
+	"github.com/nebulaai/nbai-node/common"
+	"github.com/nebulaai/nbai-node/consensus/ethash"
+	"github.com/nebulaai/nbai-node/core"
+	"github.com/nebulaai/nbai-node/eth"
+	"github.com/nebulaai/nbai-node/internal/jsre"
+	"github.com/nebulaai/nbai-node/node"
 )
 
 const (
