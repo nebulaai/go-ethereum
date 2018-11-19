@@ -8,7 +8,7 @@ Binary archives are published at https://github.com/nebulaai/nbai-node/releases.
 ## Building the source
 
 For prerequisites and detailed build instructions please read the
-[Installation Instructions](https://github.com/nebulaai/nbai-node/wiki/Building-Ethereum)
+[Installation Instructions](https://github.com/nebulaai/nbai-node/wiki/Building-Nebula-AI)
 on the wiki.
 
 Building gnbai requires both a Go (version 1.7 or later) and a C compiler.
@@ -79,7 +79,7 @@ To get an idea how the file should look like you can use the `dumpconfig` subcom
 $ gnbai --your-favourite-flags dumpconfig
 ```
 
-*Note: This works only with gnbai v1.6.0 and above.*
+*Note: This works only with gnbai v0.0.1 and above.*
 
 ### Programatically interfacing Gnbai nodes
 

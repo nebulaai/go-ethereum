@@ -33,6 +33,7 @@ import (
 	"time"
 
 	"github.com/docker/docker/pkg/reexec"
+  
 	"github.com/nebulaai/nbai-node/accounts"
 	"github.com/nebulaai/nbai-node/accounts/keystore"
 	"github.com/nebulaai/nbai-node/internal/cmdtest"
@@ -40,6 +41,7 @@ import (
 	"github.com/nebulaai/nbai-node/p2p"
 	"github.com/nebulaai/nbai-node/rpc"
 	"github.com/nebulaai/nbai-node/swarm"
+
 )
 
 var loglevel = flag.Int("loglevel", 3, "verbosity of logs")
@@ -55,6 +57,9 @@ func init() {
 	})
 }
 
+func serverFunc(api *api.API) testutil.TestServer {
+	return swarmhttp.NewServer(api, "")
+}
 func TestMain(m *testing.M) {
 	// check if we have been reexec'd
 	if reexec.Init() {
