@@ -19,9 +19,9 @@ package protocols
 import (
 	"testing"
 
-	"github.com/ethereum/go-ethereum/p2p"
-	"github.com/ethereum/go-ethereum/p2p/simulations/adapters"
-	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/nebulaai/nbai-node/p2p"
+	"github.com/nebulaai/nbai-node/p2p/simulations/adapters"
+	"github.com/nebulaai/nbai-node/rlp"
 )
 
 //dummy Balance implementation

@@ -22,10 +22,10 @@ import (
 	"strconv"
 	"sync"
 
-	"github.com/ethereum/go-ethereum/p2p/enode"
-	"github.com/ethereum/go-ethereum/p2p/protocols"
-	"github.com/ethereum/go-ethereum/swarm/log"
-	"github.com/ethereum/go-ethereum/swarm/state"
+	"github.com/nebulaai/nbai-node/p2p/enode"
+	"github.com/nebulaai/nbai-node/p2p/protocols"
+	"github.com/nebulaai/nbai-node/swarm/log"
+	"github.com/nebulaai/nbai-node/swarm/state"
 )
 
 // SwAP Swarm Accounting Protocol
