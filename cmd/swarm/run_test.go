@@ -33,7 +33,6 @@ import (
 	"time"
 
 	"github.com/docker/docker/pkg/reexec"
-  
 	"github.com/nebulaai/nbai-node/accounts"
 	"github.com/nebulaai/nbai-node/accounts/keystore"
 	"github.com/nebulaai/nbai-node/internal/cmdtest"
@@ -41,7 +40,8 @@ import (
 	"github.com/nebulaai/nbai-node/p2p"
 	"github.com/nebulaai/nbai-node/rpc"
 	"github.com/nebulaai/nbai-node/swarm"
-
+	"github.com/nebulaai/nbai-node/swarm/api"
+	swarmhttp "github.com/nebulaai/nbai-node/swarm/api/http"
 )
 
 var loglevel = flag.Int("loglevel", 3, "verbosity of logs")
@@ -57,7 +57,18 @@ func init() {
 	})
 }
 
-func serverFunc(api *api.API) testutil.TestServer {
+const clusterSize = 3
+
+var clusteronce sync.Once
+var cluster *testCluster
+
+func initCluster(t *testing.T) {
+	clusteronce.Do(func() {
+		cluster = newTestCluster(t, clusterSize)
+	})
+}
+
+func serverFunc(api *api.API) swarmhttp.TestServer {
 	return swarmhttp.NewServer(api, "")
 }
 func TestMain(m *testing.M) {

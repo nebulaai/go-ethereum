@@ -332,7 +332,7 @@ var nodeDBExpirationNodes = []struct {
 			30332,
 			30332,
 		),
-		pong: time.Now().Add(-nodeDBNodeExpiration + time.Minute),
+		pong: time.Now().Add(-dbNodeExpiration + time.Minute),
 		exp:  false,
 	}, {
 		node: NewV4(
@@ -341,7 +341,7 @@ var nodeDBExpirationNodes = []struct {
 			30332,
 			30332,
 		),
-		pong: time.Now().Add(-nodeDBNodeExpiration - time.Minute),
+		pong: time.Now().Add(-dbNodeExpiration - time.Minute),
 		exp:  true,
 	},
 }
