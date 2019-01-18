@@ -17,8 +17,9 @@
 package protocols
 
 import (
-	"github.com/nebulaai/nbai-node/metrics"
 	"time"
+
+	"github.com/nebulaai/nbai-node/metrics"
 )
 
 // define some metrics

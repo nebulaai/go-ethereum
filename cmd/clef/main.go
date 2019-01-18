@@ -26,8 +26,6 @@ import (
 	"encoding/hex"
 	"encoding/json"
 	"fmt"
-	"github.com/nebulaai/nbai-node/accounts/keystore"
-	"github.com/nebulaai/nbai-node/console"
 	"io"
 	"io/ioutil"
 	"os"
@@ -37,8 +35,10 @@ import (
 	"runtime"
 	"strings"
 
+	"github.com/nebulaai/nbai-node/accounts/keystore"
 	"github.com/nebulaai/nbai-node/cmd/utils"
 	"github.com/nebulaai/nbai-node/common"
+	"github.com/nebulaai/nbai-node/console"
 	"github.com/nebulaai/nbai-node/crypto"
 	"github.com/nebulaai/nbai-node/log"
 	"github.com/nebulaai/nbai-node/node"
@@ -46,7 +46,6 @@ import (
 	"github.com/nebulaai/nbai-node/signer/core"
 	"github.com/nebulaai/nbai-node/signer/rules"
 	"github.com/nebulaai/nbai-node/signer/storage"
-
 	"gopkg.in/urfave/cli.v1"
 )
 
