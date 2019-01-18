@@ -24,8 +24,8 @@ import (
 	"github.com/nebulaai/nbai-node/common"
 	"github.com/nebulaai/nbai-node/common/math"
 	"github.com/nebulaai/nbai-node/core/types"
-	"github.com/nebulaai/nbai-node/crypto/sha3"
 	"github.com/nebulaai/nbai-node/params"
+	"golang.org/x/crypto/sha3"
 )
 
 var (
@@ -387,7 +387,7 @@ func opSha3(pc *uint64, interpreter *EVMInterpreter, contract *Contract, memory 
 	data := memory.Get(offset.Int64(), size.Int64())
 
 	if interpreter.hasher == nil {
-		interpreter.hasher = sha3.NewKeccak256().(keccakState)
+		interpreter.hasher = sha3.NewLegacyKeccak256().(keccakState)
 	} else {
 		interpreter.hasher.Reset()
 	}

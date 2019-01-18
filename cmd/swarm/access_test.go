@@ -33,11 +33,11 @@ import (
 
 	"github.com/nebulaai/nbai-node/crypto"
 	"github.com/nebulaai/nbai-node/crypto/ecies"
-	"github.com/nebulaai/nbai-node/crypto/sha3"
 	"github.com/nebulaai/nbai-node/log"
 	"github.com/nebulaai/nbai-node/swarm/api"
 	swarmapi "github.com/nebulaai/nbai-node/swarm/api/client"
 	"github.com/nebulaai/nbai-node/swarm/testutil"
+	"golang.org/x/crypto/sha3"
 )
 
 const (
@@ -598,7 +598,7 @@ func TestKeypairSanity(t *testing.T) {
 			t.Fatal(err)
 		}
 
-		hasher := sha3.NewKeccak256()
+		hasher := sha3.NewLegacyKeccak256()
 		hasher.Write(salt)
 		shared, err := hex.DecodeString(sharedSecret)
 		if err != nil {

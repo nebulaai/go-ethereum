@@ -31,10 +31,10 @@ import (
 	"github.com/nebulaai/nbai-node/core/types"
 	"github.com/nebulaai/nbai-node/core/vm"
 	"github.com/nebulaai/nbai-node/crypto"
-	"github.com/nebulaai/nbai-node/crypto/sha3"
 	"github.com/nebulaai/nbai-node/ethdb"
 	"github.com/nebulaai/nbai-node/params"
 	"github.com/nebulaai/nbai-node/rlp"
+	"golang.org/x/crypto/sha3"
 )
 
 // StateTest checks transaction processing without block context.
@@ -248,7 +248,7 @@ func (tx *stTransaction) toMessage(ps stPostState) (core.Message, error) {
 }
 
 func rlpHash(x interface{}) (h common.Hash) {
-	hw := sha3.NewKeccak256()
+	hw := sha3.NewLegacyKeccak256()
 	rlp.Encode(hw, x)
 	hw.Sum(h[:0])
 	return h

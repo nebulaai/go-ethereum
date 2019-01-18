@@ -35,10 +35,8 @@ import (
 	p2ptest "github.com/nebulaai/nbai-node/p2p/testing"
 	"github.com/nebulaai/nbai-node/swarm/network"
 	"github.com/nebulaai/nbai-node/swarm/network/simulation"
-	"github.com/nebulaai/nbai-node/swarm/pot"
 	"github.com/nebulaai/nbai-node/swarm/state"
 	"github.com/nebulaai/nbai-node/swarm/storage"
-	mockdb "github.com/nebulaai/nbai-node/swarm/storage/mock/db"
 	"github.com/nebulaai/nbai-node/swarm/testutil"
 	colorable "github.com/mattn/go-colorable"
 )
@@ -58,7 +56,7 @@ var (
 	bucketKeyRegistry  = simulation.BucketKey("registry")
 
 	chunkSize = 4096
-	pof       = pot.DefaultPof(256)
+	pof       = network.Pof
 )
 
 func init() {
@@ -67,21 +65,6 @@ func init() {
 
 	log.PrintOrigins(true)
 	log.Root().SetHandler(log.LvlFilterHandler(log.Lvl(*loglevel), log.StreamHandler(colorable.NewColorableStderr(), log.TerminalFormat(true))))
-}
-
-func createGlobalStore() (string, *mockdb.GlobalStore, error) {
-	var globalStore *mockdb.GlobalStore
-	globalStoreDir, err := ioutil.TempDir("", "global.store")
-	if err != nil {
-		log.Error("Error initiating global store temp directory!", "err", err)
-		return "", nil, err
-	}
-	globalStore, err = mockdb.NewGlobalStore(globalStoreDir)
-	if err != nil {
-		log.Error("Error initiating global store!", "err", err)
-		return "", nil, err
-	}
-	return globalStoreDir, globalStore, nil
 }
 
 func newStreamerTester(t *testing.T, registryOptions *RegistryOptions) (*p2ptest.ProtocolTester, *Registry, *storage.LocalStore, func(), error) {
