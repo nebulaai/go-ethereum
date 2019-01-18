@@ -30,8 +30,8 @@ import (
 	"github.com/nebulaai/nbai-node/common"
 	"github.com/nebulaai/nbai-node/common/bitutil"
 	"github.com/nebulaai/nbai-node/crypto"
-	"github.com/nebulaai/nbai-node/crypto/sha3"
 	"github.com/nebulaai/nbai-node/log"
+	"golang.org/x/crypto/sha3"
 )
 
 const (
@@ -123,7 +123,7 @@ func seedHash(block uint64) []byte {
 	if block < epochLength {
 		return seed
 	}
-	keccak256 := makeHasher(sha3.NewKeccak256())
+	keccak256 := makeHasher(sha3.NewLegacyKeccak256())
 	for i := 0; i < int(block/epochLength); i++ {
 		keccak256(seed, seed)
 	}
@@ -177,7 +177,7 @@ func generateCache(dest []uint32, epoch uint64, seed []byte) {
 		}
 	}()
 	// Create a hasher to reuse between invocations
-	keccak512 := makeHasher(sha3.NewKeccak512())
+	keccak512 := makeHasher(sha3.NewLegacyKeccak512())
 
 	// Sequentially produce the initial dataset
 	keccak512(cache, seed)
@@ -301,7 +301,7 @@ func generateDataset(dest []uint32, epoch uint64, cache []uint32) {
 			defer pend.Done()
 
 			// Create a hasher to reuse between invocations
-			keccak512 := makeHasher(sha3.NewKeccak512())
+			keccak512 := makeHasher(sha3.NewLegacyKeccak512())
 
 			// Calculate the data segment this thread should generate
 			batch := uint32((size + hashBytes*uint64(threads) - 1) / (hashBytes * uint64(threads)))
@@ -375,7 +375,7 @@ func hashimoto(hash []byte, nonce uint64, size uint64, lookup func(index uint32)
 // in-memory cache) in order to produce our final value for a particular header
 // hash and nonce.
 func hashimotoLight(size uint64, cache []uint32, hash []byte, nonce uint64) ([]byte, []byte) {
-	keccak512 := makeHasher(sha3.NewKeccak512())
+	keccak512 := makeHasher(sha3.NewLegacyKeccak512())
 
 	lookup := func(index uint32) []uint32 {
 		rawData := generateDatasetItem(cache, index, keccak512)
@@ -1040,7 +1040,7 @@ var cacheSizes = [maxEpoch]uint64{
 	200014016, 200146624, 200276672, 200408128, 200540096, 200671168,
 	200801984, 200933312, 201062464, 201194944, 201326144, 201457472,
 	201588544, 201719744, 201850816, 201981632, 202111552, 202244032,
-	202374464, 202505152, 202636352, 202767808, 202898368, 203033236,
+	202374464, 202505152, 202636352, 202767808, 202898368, 203030336,
 	203159872, 203292608, 203423296, 203553472, 203685824, 203816896,
 	203947712, 204078272, 204208192, 204341056, 204472256, 204603328,
 	204733888, 204864448, 204996544, 205125568, 205258304, 205388864,

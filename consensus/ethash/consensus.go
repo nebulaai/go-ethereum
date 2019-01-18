@@ -31,9 +31,9 @@ import (
 	"github.com/nebulaai/nbai-node/consensus/misc"
 	"github.com/nebulaai/nbai-node/core/state"
 	"github.com/nebulaai/nbai-node/core/types"
-	"github.com/nebulaai/nbai-node/crypto/sha3"
 	"github.com/nebulaai/nbai-node/params"
 	"github.com/nebulaai/nbai-node/rlp"
+	"golang.org/x/crypto/sha3"
 )
 
 // Ethash proof-of-work protocol constants.
@@ -576,7 +576,7 @@ func (ethash *Ethash) Finalize(chain consensus.ChainReader, header *types.Header
 
 // SealHash returns the hash of a block prior to it being sealed.
 func (ethash *Ethash) SealHash(header *types.Header) (hash common.Hash) {
-	hasher := sha3.NewKeccak256()
+	hasher := sha3.NewLegacyKeccak256()
 
 	rlp.Encode(hasher, []interface{}{
 		header.ParentHash,
