@@ -34,8 +34,8 @@ import (
 	"sort"
 	"strconv"
 
-	"github.com/nebulaai/nbai-node/core"
-	"github.com/nebulaai/nbai-node/rlp"
+	"github.com/ethereum/go-ethereum/core"
+	"github.com/ethereum/go-ethereum/rlp"
 )
 
 type allocItem struct{ Addr, Balance *big.Int }
@@ -52,7 +52,8 @@ func makelist(g *core.Genesis) allocList {
 		if len(account.Storage) > 0 || len(account.Code) > 0 || account.Nonce != 0 {
 			panic(fmt.Sprintf("can't encode account %x", addr))
 		}
-		a = append(a, allocItem{addr.Big(), account.Balance})
+		bigAddr := new(big.Int).SetBytes(addr.Bytes())
+		a = append(a, allocItem{bigAddr, account.Balance})
 	}
 	sort.Sort(a)
 	return a

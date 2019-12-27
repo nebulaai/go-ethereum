@@ -19,11 +19,11 @@ package downloader
 import (
 	"math/big"
 
-	"github.com/nebulaai/nbai-node/common"
-	"github.com/nebulaai/nbai-node/core"
-	"github.com/nebulaai/nbai-node/core/rawdb"
-	"github.com/nebulaai/nbai-node/core/types"
-	"github.com/nebulaai/nbai-node/ethdb"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/core"
+	"github.com/ethereum/go-ethereum/core/rawdb"
+	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/ethereum/go-ethereum/ethdb"
 )
 
 // FakePeer is a mock downloader peer that operates on a local database instance
@@ -141,7 +141,7 @@ func (p *FakePeer) RequestBodies(hashes []common.Hash) error {
 func (p *FakePeer) RequestReceipts(hashes []common.Hash) error {
 	var receipts [][]*types.Receipt
 	for _, hash := range hashes {
-		receipts = append(receipts, rawdb.ReadReceipts(p.db, hash, *p.hc.GetBlockNumber(hash)))
+		receipts = append(receipts, rawdb.ReadRawReceipts(p.db, hash, *p.hc.GetBlockNumber(hash)))
 	}
 	p.dl.DeliverReceipts(p.id, receipts)
 	return nil

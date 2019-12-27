@@ -20,9 +20,9 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/nebulaai/nbai-node/node"
-	"github.com/nebulaai/nbai-node/p2p"
-	"github.com/nebulaai/nbai-node/rpc"
+	"github.com/ethereum/go-ethereum/node"
+	"github.com/ethereum/go-ethereum/p2p"
+	"github.com/ethereum/go-ethereum/rpc"
 )
 
 // SampleService is a trivial network service that can be attached to a node for
@@ -46,6 +46,8 @@ func ExampleService() {
 	if err != nil {
 		log.Fatalf("Failed to create network node: %v", err)
 	}
+	defer stack.Close()
+
 	// Create and register a simple network service. This is done through the definition
 	// of a node.ServiceConstructor that will instantiate a node.Service. The reason for
 	// the factory method approach is to support service restarts without relying on the

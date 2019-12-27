@@ -23,9 +23,9 @@ import (
 	mrand "math/rand"
 	"testing"
 
-	"github.com/nebulaai/nbai-node/common/hexutil"
-	"github.com/nebulaai/nbai-node/crypto"
-	"github.com/nebulaai/nbai-node/rlp"
+	"github.com/ethereum/go-ethereum/common/hexutil"
+	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/ethereum/go-ethereum/rlp"
 )
 
 func generateMessageParams() (*MessageParams, error) {

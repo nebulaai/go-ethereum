@@ -22,7 +22,7 @@ import (
 	"os"
 	"runtime"
 
-	"github.com/nebulaai/nbai-node/log"
+	"github.com/ethereum/go-ethereum/log"
 )
 
 func init() {

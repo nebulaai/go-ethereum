@@ -22,7 +22,7 @@ import (
 	"io/ioutil"
 	"strings"
 
-	"github.com/nebulaai/nbai-node/core/asm"
+	"github.com/ethereum/go-ethereum/core/asm"
 	cli "gopkg.in/urfave/cli.v1"
 )
 

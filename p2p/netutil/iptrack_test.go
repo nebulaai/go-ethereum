@@ -22,7 +22,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/nebulaai/nbai-node/common/mclock"
+	"github.com/ethereum/go-ethereum/common/mclock"
 )
 
 const (

@@ -20,13 +20,13 @@ import (
 	"context"
 	"time"
 
-	"github.com/nebulaai/nbai-node/common"
-	"github.com/nebulaai/nbai-node/common/bitutil"
-	"github.com/nebulaai/nbai-node/core"
-	"github.com/nebulaai/nbai-node/core/bloombits"
-	"github.com/nebulaai/nbai-node/core/rawdb"
-	"github.com/nebulaai/nbai-node/core/types"
-	"github.com/nebulaai/nbai-node/ethdb"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/common/bitutil"
+	"github.com/ethereum/go-ethereum/core"
+	"github.com/ethereum/go-ethereum/core/bloombits"
+	"github.com/ethereum/go-ethereum/core/rawdb"
+	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/ethereum/go-ethereum/ethdb"
 )
 
 const (
@@ -102,7 +102,7 @@ func NewBloomIndexer(db ethdb.Database, size, confirms uint64) *core.ChainIndexe
 		db:   db,
 		size: size,
 	}
-	table := ethdb.NewTable(db, string(rawdb.BloomBitsIndexPrefix))
+	table := rawdb.NewTable(db, string(rawdb.BloomBitsIndexPrefix))
 
 	return core.NewChainIndexer(db, table, backend, size, confirms, bloomThrottling, "bloombits")
 }

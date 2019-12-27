@@ -20,8 +20,8 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/nebulaai/nbai-node/common"
-	"github.com/nebulaai/nbai-node/ethdb"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/ethdb"
 )
 
 // Tests that the node iterator indeed walks over the entire database contents.
@@ -51,7 +51,9 @@ func TestNodeIteratorCoverage(t *testing.T) {
 			t.Errorf("state entry not reported %x", hash)
 		}
 	}
-	for _, key := range db.TrieDB().DiskDB().(*ethdb.MemDatabase).Keys() {
+	it := db.TrieDB().DiskDB().(ethdb.Database).NewIterator()
+	for it.Next() {
+		key := it.Key()
 		if bytes.HasPrefix(key, []byte("secure-key-")) {
 			continue
 		}
@@ -59,4 +61,5 @@ func TestNodeIteratorCoverage(t *testing.T) {
 			t.Errorf("state entry not reported %x", key)
 		}
 	}
+	it.Release()
 }

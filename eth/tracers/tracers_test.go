@@ -27,17 +27,17 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/nebulaai/nbai-node/common"
-	"github.com/nebulaai/nbai-node/common/hexutil"
-	"github.com/nebulaai/nbai-node/common/math"
-	"github.com/nebulaai/nbai-node/core"
-	"github.com/nebulaai/nbai-node/core/types"
-	"github.com/nebulaai/nbai-node/core/vm"
-	"github.com/nebulaai/nbai-node/crypto"
-	"github.com/nebulaai/nbai-node/ethdb"
-	"github.com/nebulaai/nbai-node/params"
-	"github.com/nebulaai/nbai-node/rlp"
-	"github.com/nebulaai/nbai-node/tests"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/common/hexutil"
+	"github.com/ethereum/go-ethereum/common/math"
+	"github.com/ethereum/go-ethereum/core"
+	"github.com/ethereum/go-ethereum/core/rawdb"
+	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/ethereum/go-ethereum/core/vm"
+	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/ethereum/go-ethereum/params"
+	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/ethereum/go-ethereum/tests"
 )
 
 // To generate a new callTracer test, copy paste the makeTest method below into
@@ -121,7 +121,7 @@ type callTracerTest struct {
 }
 
 func TestPrestateTracerCreate2(t *testing.T) {
-	unsigned_tx := types.NewTransaction(1, common.HexToAddress("0x00000000000000000000000000000000deadbeef"),
+	unsignedTx := types.NewTransaction(1, common.HexToAddress("0x00000000000000000000000000000000deadbeef"),
 		new(big.Int), 5000000, big.NewInt(1), []byte{})
 
 	privateKeyECDSA, err := ecdsa.GenerateKey(crypto.S256(), rand.Reader)
@@ -129,7 +129,7 @@ func TestPrestateTracerCreate2(t *testing.T) {
 		t.Fatalf("err %v", err)
 	}
 	signer := types.NewEIP155Signer(big.NewInt(1))
-	tx, err := types.SignTx(unsigned_tx, signer, privateKeyECDSA)
+	tx, err := types.SignTx(unsignedTx, signer, privateKeyECDSA)
 	if err != nil {
 		t.Fatalf("err %v", err)
 	}
@@ -155,6 +155,7 @@ func TestPrestateTracerCreate2(t *testing.T) {
 		GasPrice:    big.NewInt(1),
 	}
 	alloc := core.GenesisAlloc{}
+
 	// The code pushes 'deadbeef' into memory, then the other params, and calls CREATE2, then returns
 	// the address
 	alloc[common.HexToAddress("0x00000000000000000000000000000000deadbeef")] = core.GenesisAccount{
@@ -167,7 +168,8 @@ func TestPrestateTracerCreate2(t *testing.T) {
 		Code:    []byte{},
 		Balance: big.NewInt(500000000000000),
 	}
-	statedb := tests.MakePreState(ethdb.NewMemDatabase(), alloc)
+	statedb := tests.MakePreState(rawdb.NewMemoryDatabase(), alloc)
+
 	// Create the tracer, the EVM environment and run it
 	tracer, err := New("prestateTracer")
 	if err != nil {
@@ -240,7 +242,7 @@ func TestCallTracer(t *testing.T) {
 				GasLimit:    uint64(test.Context.GasLimit),
 				GasPrice:    tx.GasPrice(),
 			}
-			statedb := tests.MakePreState(ethdb.NewMemDatabase(), test.Genesis.Alloc)
+			statedb := tests.MakePreState(rawdb.NewMemoryDatabase(), test.Genesis.Alloc)
 
 			// Create the tracer, the EVM environment and run it
 			tracer, err := New("callTracer")

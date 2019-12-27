@@ -30,8 +30,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/nebulaai/nbai-node/accounts/keystore"
-	"github.com/nebulaai/nbai-node/core/types"
+	"github.com/ethereum/go-ethereum/accounts/keystore"
+	"github.com/ethereum/go-ethereum/core/types"
 )
 
 // Tests that the account management snippets work correctly.

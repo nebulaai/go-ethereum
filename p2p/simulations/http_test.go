@@ -22,31 +22,30 @@ import (
 	"fmt"
 	"math/rand"
 	"net/http/httptest"
+	"os"
 	"reflect"
 	"sync"
 	"sync/atomic"
 	"testing"
 	"time"
 
-	"github.com/nebulaai/nbai-node/event"
-	"github.com/nebulaai/nbai-node/log"
-	"github.com/nebulaai/nbai-node/node"
-	"github.com/nebulaai/nbai-node/p2p"
-	"github.com/nebulaai/nbai-node/p2p/enode"
-	"github.com/nebulaai/nbai-node/p2p/simulations/adapters"
-	"github.com/nebulaai/nbai-node/rpc"
+	"github.com/ethereum/go-ethereum/event"
+	"github.com/ethereum/go-ethereum/log"
+	"github.com/ethereum/go-ethereum/node"
+	"github.com/ethereum/go-ethereum/p2p"
+	"github.com/ethereum/go-ethereum/p2p/enode"
+	"github.com/ethereum/go-ethereum/p2p/simulations/adapters"
+	"github.com/ethereum/go-ethereum/rpc"
 	"github.com/mattn/go-colorable"
 )
 
-var (
-	loglevel = flag.Int("loglevel", 2, "verbosity of logs")
-)
+func TestMain(m *testing.M) {
+	loglevel := flag.Int("loglevel", 2, "verbosity of logs")
 
-func init() {
 	flag.Parse()
-
 	log.PrintOrigins(true)
 	log.Root().SetHandler(log.LvlFilterHandler(log.Lvl(*loglevel), log.StreamHandler(colorable.NewColorableStderr(), log.TerminalFormat(true))))
+	os.Exit(m.Run())
 }
 
 // testService implements the node.Service interface and provides protocols
@@ -421,15 +420,8 @@ type expectEvents struct {
 }
 
 func (t *expectEvents) nodeEvent(id string, up bool) *Event {
-	return &Event{
-		Type: EventTypeNode,
-		Node: &Node{
-			Config: &adapters.NodeConfig{
-				ID: enode.HexID(id),
-			},
-			Up: up,
-		},
-	}
+	config := &adapters.NodeConfig{ID: enode.HexID(id)}
+	return &Event{Type: EventTypeNode, Node: newNode(nil, config, up)}
 }
 
 func (t *expectEvents) connEvent(one, other string, up bool) *Event {
@@ -450,7 +442,7 @@ loop:
 	for {
 		select {
 		case event := <-t.events:
-			t.Logf("received %s event: %s", event.Type, event)
+			t.Logf("received %s event: %v", event.Type, event)
 
 			if event.Type != EventTypeMsg || event.Msg.Received {
 				continue loop
@@ -480,12 +472,13 @@ loop:
 }
 
 func (t *expectEvents) expect(events ...*Event) {
+	t.Helper()
 	timeout := time.After(10 * time.Second)
 	i := 0
 	for {
 		select {
 		case event := <-t.events:
-			t.Logf("received %s event: %s", event.Type, event)
+			t.Logf("received %s event: %v", event.Type, event)
 
 			expected := events[i]
 			if event.Type != expected.Type {
@@ -501,8 +494,8 @@ func (t *expectEvents) expect(events ...*Event) {
 				if event.Node.ID() != expected.Node.ID() {
 					t.Fatalf("expected node event %d to have id %q, got %q", i, expected.Node.ID().TerminalString(), event.Node.ID().TerminalString())
 				}
-				if event.Node.Up != expected.Node.Up {
-					t.Fatalf("expected node event %d to have up=%t, got up=%t", i, expected.Node.Up, event.Node.Up)
+				if event.Node.Up() != expected.Node.Up() {
+					t.Fatalf("expected node event %d to have up=%t, got up=%t", i, expected.Node.Up(), event.Node.Up())
 				}
 
 			case EventTypeConn:

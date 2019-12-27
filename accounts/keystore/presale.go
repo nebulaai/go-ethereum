@@ -25,8 +25,8 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/nebulaai/nbai-node/accounts"
-	"github.com/nebulaai/nbai-node/crypto"
+	"github.com/ethereum/go-ethereum/accounts"
+	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/pborman/uuid"
 	"golang.org/x/crypto/pbkdf2"
 )

@@ -7,10 +7,10 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/nebulaai/nbai-node/common"
-	"github.com/nebulaai/nbai-node/common/hexutil"
-	"github.com/nebulaai/nbai-node/common/math"
-	"github.com/nebulaai/nbai-node/params"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/common/hexutil"
+	"github.com/ethereum/go-ethereum/common/math"
+	"github.com/ethereum/go-ethereum/params"
 )
 
 var _ = (*genesisSpecMarshaling)(nil)
