@@ -23,7 +23,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/nebulaai/nbai-node/common"
+	"github.com/ethereum/go-ethereum/common"
 )
 
 const testSectionSize = 4096

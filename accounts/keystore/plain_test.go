@@ -27,8 +27,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/nebulaai/nbai-node/common"
-	"github.com/nebulaai/nbai-node/crypto"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/crypto"
 )
 
 func tmpKeyStoreIface(t *testing.T, encrypted bool) (dir string, ks keyStore) {
@@ -96,7 +96,7 @@ func TestKeyStorePassphraseDecryptionFail(t *testing.T) {
 		t.Fatal(err)
 	}
 	if _, err = ks.GetKey(k1.Address, account.URL.Path, "bar"); err != ErrDecrypt {
-		t.Fatalf("wrong error for invalid passphrase\ngot %q\nwant %q", err, ErrDecrypt)
+		t.Fatalf("wrong error for invalid password\ngot %q\nwant %q", err, ErrDecrypt)
 	}
 }
 

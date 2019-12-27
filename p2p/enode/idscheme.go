@@ -21,10 +21,10 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/nebulaai/nbai-node/common/math"
-	"github.com/nebulaai/nbai-node/crypto"
-	"github.com/nebulaai/nbai-node/p2p/enr"
-	"github.com/nebulaai/nbai-node/rlp"
+	"github.com/ethereum/go-ethereum/common/math"
+	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/ethereum/go-ethereum/p2p/enr"
+	"github.com/ethereum/go-ethereum/rlp"
 	"golang.org/x/crypto/sha3"
 )
 

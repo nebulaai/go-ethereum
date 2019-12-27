@@ -22,8 +22,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/nebulaai/nbai-node/common"
-	"github.com/nebulaai/nbai-node/crypto"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/crypto"
 )
 
 var seed int64
@@ -33,11 +33,6 @@ var seed int64
 // reproduciblity independent of their sequence.
 func InitSingleTest() {
 	seed = time.Now().Unix()
-	mrand.Seed(seed)
-}
-
-func InitDebugTest(i int64) {
-	seed = i
 	mrand.Seed(seed)
 }
 
@@ -309,8 +304,7 @@ func TestMatchEnvelope(t *testing.T) {
 	if err != nil {
 		t.Fatalf("failed to create new message with seed %d: %s.", seed, err)
 	}
-	env, err := msg.Wrap(params)
-	if err != nil {
+	if _, err = msg.Wrap(params); err != nil {
 		t.Fatalf("failed Wrap with seed %d: %s.", seed, err)
 	}
 
@@ -322,7 +316,7 @@ func TestMatchEnvelope(t *testing.T) {
 	if err != nil {
 		t.Fatalf("failed to create new message with seed %d: %s.", seed, err)
 	}
-	env, err = msg.Wrap(params)
+	env, err := msg.Wrap(params)
 	if err != nil {
 		t.Fatalf("failed Wrap() with seed %d: %s.", seed, err)
 	}

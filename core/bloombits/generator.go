@@ -19,7 +19,7 @@ package bloombits
 import (
 	"errors"
 
-	"github.com/nebulaai/nbai-node/core/types"
+	"github.com/ethereum/go-ethereum/core/types"
 )
 
 var (

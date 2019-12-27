@@ -19,7 +19,7 @@ package vm
 import (
 	"math/big"
 
-	"github.com/nebulaai/nbai-node/common"
+	"github.com/ethereum/go-ethereum/common"
 )
 
 // ContractRef is a reference to the contract's backing object
@@ -162,7 +162,7 @@ func (c *Contract) Address() common.Address {
 	return c.self.Address()
 }
 
-// Value returns the contracts value (sent to it from it's caller)
+// Value returns the contract's value (sent to it from it's caller)
 func (c *Contract) Value() *big.Int {
 	return c.value
 }

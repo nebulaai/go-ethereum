@@ -19,7 +19,7 @@
 package fetcher
 
 import (
-	"github.com/nebulaai/nbai-node/metrics"
+	"github.com/ethereum/go-ethereum/metrics"
 )
 
 var (

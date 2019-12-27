@@ -27,12 +27,12 @@ import (
 	"time"
 
 	mapset "github.com/deckarep/golang-set"
-	"github.com/nebulaai/nbai-node/common"
-	"github.com/nebulaai/nbai-node/crypto"
-	"github.com/nebulaai/nbai-node/log"
-	"github.com/nebulaai/nbai-node/p2p"
-	"github.com/nebulaai/nbai-node/rlp"
-	"github.com/nebulaai/nbai-node/rpc"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/ethereum/go-ethereum/log"
+	"github.com/ethereum/go-ethereum/p2p"
+	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/ethereum/go-ethereum/rpc"
 	"github.com/syndtr/goleveldb/leveldb/errors"
 	"golang.org/x/crypto/pbkdf2"
 	"golang.org/x/sync/syncmap"
@@ -352,7 +352,7 @@ func (whisper *Whisper) getPeer(peerID []byte) (*Peer, error) {
 			return p, nil
 		}
 	}
-	return nil, fmt.Errorf("Could not find peer with ID: %x", peerID)
+	return nil, fmt.Errorf("could not find peer with ID: %x", peerID)
 }
 
 // AllowP2PMessagesFromPeer marks specific peer trusted,

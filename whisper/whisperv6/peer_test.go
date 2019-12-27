@@ -22,19 +22,18 @@ import (
 	"fmt"
 	mrand "math/rand"
 	"sync"
-	"sync/atomic"
 	"testing"
 	"time"
 
 	"net"
 
-	"github.com/nebulaai/nbai-node/common"
-	"github.com/nebulaai/nbai-node/common/hexutil"
-	"github.com/nebulaai/nbai-node/crypto"
-	"github.com/nebulaai/nbai-node/p2p"
-	"github.com/nebulaai/nbai-node/p2p/enode"
-	"github.com/nebulaai/nbai-node/p2p/nat"
-	"github.com/nebulaai/nbai-node/rlp"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/common/hexutil"
+	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/ethereum/go-ethereum/p2p"
+	"github.com/ethereum/go-ethereum/p2p/enode"
+	"github.com/ethereum/go-ethereum/p2p/nat"
+	"github.com/ethereum/go-ethereum/rlp"
 )
 
 var keys = []string{
@@ -74,7 +73,6 @@ var keys = []string{
 }
 
 type TestData struct {
-	started int64
 	counter [NumNodes]int
 	mutex   sync.RWMutex
 }
@@ -212,12 +210,9 @@ func initialize(t *testing.T) {
 			},
 		}
 
-		go startServer(t, node.server)
-
+		startServer(t, node.server)
 		nodes[i] = &node
 	}
-
-	waitForServersToStart(t)
 
 	for i := 0; i < NumNodes; i++ {
 		for j := 0; j < i; j++ {
@@ -234,8 +229,6 @@ func startServer(t *testing.T, s *p2p.Server) {
 	if err != nil {
 		t.Fatalf("failed to start the first server. err: %v", err)
 	}
-
-	atomic.AddInt64(&result.started, 1)
 }
 
 func stopServers() {
@@ -492,19 +485,6 @@ func checkBloomFilterExchange(t *testing.T) {
 		}
 		time.Sleep(50 * time.Millisecond)
 	}
-}
-
-func waitForServersToStart(t *testing.T) {
-	const iterations = 200
-	var started int64
-	for j := 0; j < iterations; j++ {
-		time.Sleep(50 * time.Millisecond)
-		started = atomic.LoadInt64(&result.started)
-		if started == NumNodes {
-			return
-		}
-	}
-	t.Fatalf("Failed to start all the servers, running: %d", started)
 }
 
 //two generic whisper node handshake

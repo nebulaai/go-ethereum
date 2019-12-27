@@ -25,9 +25,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/nebulaai/nbai-node/common"
-	"github.com/nebulaai/nbai-node/crypto"
-	whisper "github.com/nebulaai/nbai-node/whisper/whisperv6"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/crypto"
+	whisper "github.com/ethereum/go-ethereum/whisper/whisperv6"
 )
 
 const powRequirement = 0.00001
@@ -172,7 +172,7 @@ func singleRequest(t *testing.T, server *WMailServer, env *whisper.Envelope, p *
 	}
 
 	src[0]++
-	ok, lower, upper, bloom = server.validateRequest(src, request)
+	ok, lower, upper, _ = server.validateRequest(src, request)
 	if !ok {
 		// request should be valid regardless of signature
 		t.Fatalf("request validation false negative, seed: %d (lower: %d, upper: %d).", seed, lower, upper)

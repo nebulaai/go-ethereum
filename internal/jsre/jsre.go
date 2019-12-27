@@ -26,14 +26,14 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/nebulaai/nbai-node/common"
-	"github.com/nebulaai/nbai-node/internal/jsre/deps"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/internal/jsre/deps"
 	"github.com/robertkrimen/otto"
 )
 
 var (
-	BigNumber_JS = deps.MustAsset("bignumber.js")
-	Web3_JS      = deps.MustAsset("web3.js")
+	BignumberJs = deps.MustAsset("bignumber.js")
+	Web3Js      = deps.MustAsset("web3.js")
 )
 
 /*

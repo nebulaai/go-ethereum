@@ -22,12 +22,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/nebulaai/nbai-node/accounts/abi/bind"
-	"github.com/nebulaai/nbai-node/accounts/abi/bind/backends"
-	"github.com/nebulaai/nbai-node/common"
-	"github.com/nebulaai/nbai-node/core"
-	"github.com/nebulaai/nbai-node/core/types"
-	"github.com/nebulaai/nbai-node/crypto"
+	"github.com/ethereum/go-ethereum/accounts/abi/bind"
+	"github.com/ethereum/go-ethereum/accounts/abi/bind/backends"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/core"
+	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/ethereum/go-ethereum/crypto"
 )
 
 var testKey, _ = crypto.HexToECDSA("b71c71a67e1177ad4e901695e1b4b9ee17ae16c6668d313eac2f96dbcda3f291")
@@ -56,8 +56,10 @@ func TestWaitDeployed(t *testing.T) {
 		backend := backends.NewSimulatedBackend(
 			core.GenesisAlloc{
 				crypto.PubkeyToAddress(testKey.PublicKey): {Balance: big.NewInt(10000000000)},
-			}, 10000000,
+			},
+			10000000,
 		)
+		defer backend.Close()
 
 		// Create the transaction.
 		tx := types.NewContractCreation(0, big.NewInt(0), test.gas, big.NewInt(1), common.FromHex(test.code))

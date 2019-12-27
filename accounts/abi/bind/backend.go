@@ -21,9 +21,9 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/nebulaai/nbai-node"
-	"github.com/nebulaai/nbai-node/common"
-	"github.com/nebulaai/nbai-node/core/types"
+	"github.com/ethereum/go-ethereum"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/core/types"
 )
 
 var (

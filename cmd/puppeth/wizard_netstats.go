@@ -23,8 +23,8 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/nebulaai/nbai-node/core"
-	"github.com/nebulaai/nbai-node/log"
+	"github.com/ethereum/go-ethereum/core"
+	"github.com/ethereum/go-ethereum/log"
 	"github.com/olekukonko/tablewriter"
 )
 
