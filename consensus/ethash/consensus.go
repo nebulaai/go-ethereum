@@ -38,12 +38,13 @@ import (
 
 // Ethash proof-of-work protocol constants.
 var (
-	ByzantiumBlockRewardString = "35000000000000000000"
-	FrontierBlockReward        = big.NewInt(5e+18)                                      // Block reward in wei for successfully mining a block
-	ByzantiumBlockReward, _    = new(big.Int).SetString(ByzantiumBlockRewardString, 10) // Block reward in wei for successfully mining a block upward from Byzantium
-	ConstantinopleBlockReward  = big.NewInt(2e+18)                                      // Block reward in wei for successfully mining a block upward from Constantinople
-	maxUncles                  = 2                                                      // Maximum number of uncles allowed in a single block
-	allowedFutureBlockTime     = 15 * time.Second                                       // Max time from current time allowed for blocks, before they're considered future blocks
+	FrontierBlockReward          = big.NewInt(5e+18)                                        // Block reward in wei for successfully mining a block
+	ByzantiumBlockRewardString   = "35000000000000000000"                                   // 35 NBAI from Byzantium
+	ByzantiumBlockReward, _      = new(big.Int).SetString(ByzantiumBlockRewardString, 10)   // Block reward in wei for successfully mining a block upward from Byzantium
+	ConstantinopleBlockRewardStr = "17000000000000000000"                                   // 17 NBAI from Constantinople
+	ConstantinopleBlockReward, _ = new(big.Int).SetString(ConstantinopleBlockRewardStr, 10) // Block reward in wei for successfully mining a block upward from Constantinople
+	maxUncles                    = 2                                                        // Maximum number of uncles allowed in a single block
+	allowedFutureBlockTime       = 15 * time.Second                                         // Max time from current time allowed for blocks, before they're considered future blocks
 
 	// calcDifficultyEip2384 is the difficulty adjustment algorithm as specified by EIP 2384.
 	// It offsets the bomb 4M blocks from Constantinople, so in total 9M blocks.
