@@ -69,23 +69,23 @@ var (
 
 	// MainnetTrustedCheckpoint contains the light client trusted checkpoint for the main network.
 	MainnetTrustedCheckpoint = &TrustedCheckpoint{
-		SectionIndex: 275,
-		SectionHead:  common.HexToHash("0x03159234a3699e31d27e5d83a55cbcf8ceb1f2d90855c219c55d79089b61abd4"),
-		CHTRoot:      common.HexToHash("0xd0c1f3828a4dcb2ee76625fdbea85afeabfb61c04adf07439d2fc1cf00469f76"),
-		BloomRoot:    common.HexToHash("0xab8ea2be8aa24703208fee3fc0afdbb536301013f412a7282b2692d6d68f92c5"),
+		//SectionIndex: 275,
+		//SectionHead:  common.HexToHash("0x03159234a3699e31d27e5d83a55cbcf8ceb1f2d90855c219c55d79089b61abd4"),
+		//CHTRoot:      common.HexToHash("0xd0c1f3828a4dcb2ee76625fdbea85afeabfb61c04adf07439d2fc1cf00469f76"),
+		//BloomRoot:    common.HexToHash("0xab8ea2be8aa24703208fee3fc0afdbb536301013f412a7282b2692d6d68f92c5"),
 	}
 
 	// MainnetCheckpointOracle contains a set of configs for the main network oracle.
 	MainnetCheckpointOracle = &CheckpointOracleConfig{
-		Address: common.HexToAddress("0x9a9070028361F7AAbeB3f2F2Dc07F82C4a98A02a"),
-		Signers: []common.Address{
-			common.HexToAddress("0x1b2C260efc720BE89101890E4Db589b44E950527"), // Peter
-			common.HexToAddress("0x78d1aD571A1A09D60D9BBf25894b44e4C8859595"), // Martin
-			common.HexToAddress("0x286834935f4A8Cfb4FF4C77D5770C2775aE2b0E7"), // Zsolt
-			common.HexToAddress("0xb86e2B0Ab5A4B1373e40c51A7C712c70Ba2f9f8E"), // Gary
-			common.HexToAddress("0x0DF8fa387C602AE62559cC4aFa4972A7045d6707"), // Guillaume
-		},
-		Threshold: 2,
+		//Address: common.HexToAddress("0x9a9070028361F7AAbeB3f2F2Dc07F82C4a98A02a"),
+		//Signers: []common.Address{
+		//	common.HexToAddress("0x1b2C260efc720BE89101890E4Db589b44E950527"), // Peter
+		//	common.HexToAddress("0x78d1aD571A1A09D60D9BBf25894b44e4C8859595"), // Martin
+		//	common.HexToAddress("0x286834935f4A8Cfb4FF4C77D5770C2775aE2b0E7"), // Zsolt
+		//	common.HexToAddress("0xb86e2B0Ab5A4B1373e40c51A7C712c70Ba2f9f8E"), // Gary
+		//	common.HexToAddress("0x0DF8fa387C602AE62559cC4aFa4972A7045d6707"), // Guillaume
+		//},
+		//Threshold: 2,
 	}
 
 	// TestnetChainConfig contains the chain parameters to run a node on the Ropsten test network.
@@ -105,23 +105,23 @@ var (
 
 	// TestnetTrustedCheckpoint contains the light client trusted checkpoint for the Ropsten test network.
 	TestnetTrustedCheckpoint = &TrustedCheckpoint{
-		SectionIndex: 209,
-		SectionHead:  common.HexToHash("0x8037eb6872b69397d434121424ed8d6ab74be32bf3cb3f12dc5d9657fc146860"),
-		CHTRoot:      common.HexToHash("0xe64b7d6324e5cbdcbbc250adf4cf24a639a665aa83ccfd6a0b84a80faaaa0d41"),
-		BloomRoot:    common.HexToHash("0x80fedbef680cd70d3dc4b50b14480fba82c74361a35e8dc7be9f11e03077c840"),
+		//SectionIndex: 209,
+		//SectionHead:  common.HexToHash("0x8037eb6872b69397d434121424ed8d6ab74be32bf3cb3f12dc5d9657fc146860"),
+		//CHTRoot:      common.HexToHash("0xe64b7d6324e5cbdcbbc250adf4cf24a639a665aa83ccfd6a0b84a80faaaa0d41"),
+		//BloomRoot:    common.HexToHash("0x80fedbef680cd70d3dc4b50b14480fba82c74361a35e8dc7be9f11e03077c840"),
 	}
 
 	// TestnetCheckpointOracle contains a set of configs for the Ropsten test network oracle.
 	TestnetCheckpointOracle = &CheckpointOracleConfig{
-		Address: common.HexToAddress("0xEF79475013f154E6A65b54cB2742867791bf0B84"),
-		Signers: []common.Address{
-			common.HexToAddress("0x32162F3581E88a5f62e8A61892B42C46E2c18f7b"), // Peter
-			common.HexToAddress("0x78d1aD571A1A09D60D9BBf25894b44e4C8859595"), // Martin
-			common.HexToAddress("0x286834935f4A8Cfb4FF4C77D5770C2775aE2b0E7"), // Zsolt
-			common.HexToAddress("0xb86e2B0Ab5A4B1373e40c51A7C712c70Ba2f9f8E"), // Gary
-			common.HexToAddress("0x0DF8fa387C602AE62559cC4aFa4972A7045d6707"), // Guillaume
-		},
-		Threshold: 2,
+		//Address: common.HexToAddress("0xEF79475013f154E6A65b54cB2742867791bf0B84"),
+		//Signers: []common.Address{
+		//	common.HexToAddress("0x32162F3581E88a5f62e8A61892B42C46E2c18f7b"), // Peter
+		//	common.HexToAddress("0x78d1aD571A1A09D60D9BBf25894b44e4C8859595"), // Martin
+		//	common.HexToAddress("0x286834935f4A8Cfb4FF4C77D5770C2775aE2b0E7"), // Zsolt
+		//	common.HexToAddress("0xb86e2B0Ab5A4B1373e40c51A7C712c70Ba2f9f8E"), // Gary
+		//	common.HexToAddress("0x0DF8fa387C602AE62559cC4aFa4972A7045d6707"), // Guillaume
+		//},
+		//Threshold: 2,
 	}
 
 	// RinkebyChainConfig contains the chain parameters to run a node on the Rinkeby test network.
