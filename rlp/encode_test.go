@@ -51,6 +51,13 @@ func (e testEncoderValueMethod) EncodeRLP(w io.Writer) error {
 	return nil
 }
 
+type testEncoderValueMethod struct{}
+
+func (e testEncoderValueMethod) EncodeRLP(w io.Writer) error {
+	w.Write([]byte{0xFA, 0xFE, 0xF0})
+	return nil
+}
+
 type byteEncoder byte
 
 func (e byteEncoder) EncodeRLP(w io.Writer) error {
