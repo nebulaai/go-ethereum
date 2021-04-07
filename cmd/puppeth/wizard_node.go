@@ -21,9 +21,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/nebulaai/nbai-node/accounts/keystore"
-	"github.com/nebulaai/nbai-node/common"
-	"github.com/nebulaai/nbai-node/log"
+	"github.com/ethereum/go-ethereum/accounts/keystore"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/log"
 )
 
 // deployNode creates a new node configuration based on some user input.
@@ -142,7 +142,7 @@ func (w *wizard) deployNode(boot bool) {
 				infos.keyPass = w.readPassword()
 
 				if _, err := keystore.DecryptKey([]byte(infos.keyJSON), infos.keyPass); err != nil {
-					log.Error("Failed to decrypt key with given passphrase")
+					log.Error("Failed to decrypt key with given password")
 					return
 				}
 			}

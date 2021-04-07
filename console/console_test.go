@@ -26,12 +26,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/nebulaai/nbai-node/common"
-	"github.com/nebulaai/nbai-node/consensus/ethash"
-	"github.com/nebulaai/nbai-node/core"
-	"github.com/nebulaai/nbai-node/eth"
-	"github.com/nebulaai/nbai-node/internal/jsre"
-	"github.com/nebulaai/nbai-node/node"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/consensus/ethash"
+	"github.com/ethereum/go-ethereum/core"
+	"github.com/ethereum/go-ethereum/eth"
+	"github.com/ethereum/go-ethereum/internal/jsre"
+	"github.com/ethereum/go-ethereum/miner"
+	"github.com/ethereum/go-ethereum/node"
 )
 
 const (
@@ -96,8 +97,10 @@ func newTester(t *testing.T, confOverride func(*eth.Config)) *tester {
 		t.Fatalf("failed to create node: %v", err)
 	}
 	ethConf := &eth.Config{
-		Genesis:   core.DeveloperGenesisBlock(15, common.Address{}),
-		Etherbase: common.HexToAddress(testAddress),
+		Genesis: core.DeveloperGenesisBlock(15, common.Address{}),
+		Miner: miner.Config{
+			Etherbase: common.HexToAddress(testAddress),
+		},
 		Ethash: ethash.Config{
 			PowMode: ethash.ModeTest,
 		},
@@ -149,8 +152,8 @@ func (env *tester) Close(t *testing.T) {
 	if err := env.console.Stop(false); err != nil {
 		t.Errorf("failed to stop embedded console: %v", err)
 	}
-	if err := env.stack.Stop(); err != nil {
-		t.Errorf("failed to stop embedded node: %v", err)
+	if err := env.stack.Close(); err != nil {
+		t.Errorf("failed to tear down embedded node: %v", err)
 	}
 	os.RemoveAll(env.workspace)
 }

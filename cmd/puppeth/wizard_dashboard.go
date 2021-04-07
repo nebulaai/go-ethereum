@@ -19,7 +19,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/nebulaai/nbai-node/log"
+	"github.com/ethereum/go-ethereum/log"
 )
 
 // deployDashboard queries the user for various input on deploying a web-service
@@ -77,7 +77,7 @@ func (w *wizard) deployDashboard() {
 				}
 			case "explorer":
 				if infos, err := checkExplorer(client, w.network); err == nil {
-					port = infos.webPort
+					port = infos.port
 				}
 			case "wallet":
 				if infos, err := checkWallet(client, w.network); err == nil {

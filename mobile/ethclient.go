@@ -21,8 +21,8 @@ package geth
 import (
 	"math/big"
 
-	"github.com/nebulaai/nbai-node/core/types"
-	"github.com/nebulaai/nbai-node/ethclient"
+	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/ethereum/go-ethereum/ethclient"
 )
 
 // EthereumClient provides access to the Ethereum APIs.

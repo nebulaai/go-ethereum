@@ -23,7 +23,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/nebulaai/nbai-node/log"
+	"github.com/ethereum/go-ethereum/log"
 	"gopkg.in/urfave/cli.v1"
 )
 

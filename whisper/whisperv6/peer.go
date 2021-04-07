@@ -23,10 +23,10 @@ import (
 	"time"
 
 	mapset "github.com/deckarep/golang-set"
-	"github.com/nebulaai/nbai-node/common"
-	"github.com/nebulaai/nbai-node/log"
-	"github.com/nebulaai/nbai-node/p2p"
-	"github.com/nebulaai/nbai-node/rlp"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/log"
+	"github.com/ethereum/go-ethereum/p2p"
+	"github.com/ethereum/go-ethereum/rlp"
 )
 
 // Peer represents a whisper protocol peer connection.
@@ -130,7 +130,7 @@ func (peer *Peer) handshake() error {
 		}
 	}
 
-	isRemotePeerLightNode, err := s.Bool()
+	isRemotePeerLightNode, _ := s.Bool()
 	if isRemotePeerLightNode && isLightNode && isRestrictedLightNodeConnection {
 		return fmt.Errorf("peer [%x] is useless: two light client communication restricted", peer.ID())
 	}

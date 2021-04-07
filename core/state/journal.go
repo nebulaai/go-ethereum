@@ -19,7 +19,7 @@ package state
 import (
 	"math/big"
 
-	"github.com/nebulaai/nbai-node/common"
+	"github.com/ethereum/go-ethereum/common"
 )
 
 // journalEntry is a modification entry in the state change journal that can be
@@ -127,9 +127,7 @@ type (
 		hash common.Hash
 	}
 	touchChange struct {
-		account   *common.Address
-		prev      bool
-		prevDirty bool
+		account *common.Address
 	}
 )
 

@@ -23,10 +23,10 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/nebulaai/nbai-node/core/state"
-	"github.com/nebulaai/nbai-node/core/vm"
-	"github.com/nebulaai/nbai-node/log"
-	"github.com/nebulaai/nbai-node/tests"
+	"github.com/ethereum/go-ethereum/core/state"
+	"github.com/ethereum/go-ethereum/core/vm"
+	"github.com/ethereum/go-ethereum/log"
+	"github.com/ethereum/go-ethereum/tests"
 
 	cli "gopkg.in/urfave/cli.v1"
 )
@@ -105,7 +105,7 @@ func stateTestCmd(ctx *cli.Context) error {
 				// Test failed, mark as so and dump any state to aid debugging
 				result.Pass, result.Error = false, err.Error()
 				if ctx.GlobalBool(DumpFlag.Name) && state != nil {
-					dump := state.RawDump()
+					dump := state.RawDump(false, false, true)
 					result.State = &dump
 				}
 			}

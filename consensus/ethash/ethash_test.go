@@ -25,9 +25,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/nebulaai/nbai-node/common"
-	"github.com/nebulaai/nbai-node/common/hexutil"
-	"github.com/nebulaai/nbai-node/core/types"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/common/hexutil"
+	"github.com/ethereum/go-ethereum/core/types"
 )
 
 // Tests that ethash works correctly in test mode.
@@ -49,7 +49,7 @@ func TestTestMode(t *testing.T) {
 		if err := ethash.VerifySeal(nil, header); err != nil {
 			t.Fatalf("unexpected verification error: %v", err)
 		}
-	case <-time.NewTimer(time.Second).C:
+	case <-time.NewTimer(2 * time.Second).C:
 		t.Error("sealing result timeout")
 	}
 }

@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/nebulaai/nbai-node/log"
+	"github.com/ethereum/go-ethereum/log"
 )
 
 // manageServers displays a list of servers the user can disconnect from, and an
@@ -174,7 +174,7 @@ func (w *wizard) deployComponent() {
 	fmt.Println(" 1. Ethstats  - Network monitoring tool")
 	fmt.Println(" 2. Bootnode  - Entry point of the network")
 	fmt.Println(" 3. Sealer    - Full node minting new blocks")
-	fmt.Println(" 4. Explorer  - Chain analysis webservice (ethash only)")
+	fmt.Println(" 4. Explorer  - Chain analysis webservice")
 	fmt.Println(" 5. Wallet    - Browser wallet for quick sends")
 	fmt.Println(" 6. Faucet    - Crypto faucet to give away funds")
 	fmt.Println(" 7. Dashboard - Website listing above web-services")

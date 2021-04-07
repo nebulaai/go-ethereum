@@ -7,8 +7,8 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/nebulaai/nbai-node/common"
-	"github.com/nebulaai/nbai-node/common/math"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/common/math"
 )
 
 var _ = (*stEnvMarshaling)(nil)

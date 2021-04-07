@@ -20,9 +20,9 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/nebulaai/nbai-node/common"
-	"github.com/nebulaai/nbai-node/core/state"
-	"github.com/nebulaai/nbai-node/params"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/core/state"
+	"github.com/ethereum/go-ethereum/params"
 )
 
 type dummyContractRef struct {

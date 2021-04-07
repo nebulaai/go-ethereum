@@ -24,18 +24,18 @@ import (
 	"fmt"
 	"path/filepath"
 
-	"github.com/nebulaai/nbai-node/core"
-	"github.com/nebulaai/nbai-node/eth"
-	"github.com/nebulaai/nbai-node/eth/downloader"
-	"github.com/nebulaai/nbai-node/ethclient"
-	"github.com/nebulaai/nbai-node/ethstats"
-	"github.com/nebulaai/nbai-node/internal/debug"
-	"github.com/nebulaai/nbai-node/les"
-	"github.com/nebulaai/nbai-node/node"
-	"github.com/nebulaai/nbai-node/p2p"
-	"github.com/nebulaai/nbai-node/p2p/nat"
-	"github.com/nebulaai/nbai-node/params"
-	whisper "github.com/nebulaai/nbai-node/whisper/whisperv6"
+	"github.com/ethereum/go-ethereum/core"
+	"github.com/ethereum/go-ethereum/eth"
+	"github.com/ethereum/go-ethereum/eth/downloader"
+	"github.com/ethereum/go-ethereum/ethclient"
+	"github.com/ethereum/go-ethereum/ethstats"
+	"github.com/ethereum/go-ethereum/internal/debug"
+	"github.com/ethereum/go-ethereum/les"
+	"github.com/ethereum/go-ethereum/node"
+	"github.com/ethereum/go-ethereum/p2p"
+	"github.com/ethereum/go-ethereum/p2p/nat"
+	"github.com/ethereum/go-ethereum/params"
+	whisper "github.com/ethereum/go-ethereum/whisper/whisperv6"
 )
 
 // NodeConfig represents the collection of configuration values to fine tune the Geth
@@ -131,6 +131,7 @@ func NewNode(datadir string, config *NodeConfig) (stack *Node, _ error) {
 			MaxPeers:         config.MaxPeers,
 		},
 	}
+
 	rawStack, err := node.New(nodeConf)
 	if err != nil {
 		return nil, err
@@ -186,6 +187,12 @@ func NewNode(datadir string, config *NodeConfig) (stack *Node, _ error) {
 		}
 	}
 	return &Node{rawStack}, nil
+}
+
+// Close terminates a running node along with all it's services, tearing internal
+// state doen too. It's not possible to restart a closed node.
+func (n *Node) Close() error {
+	return n.node.Close()
 }
 
 // Start creates a live P2P node and starts running it.

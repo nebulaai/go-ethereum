@@ -19,9 +19,9 @@ package types
 import (
 	"bytes"
 
-	"github.com/nebulaai/nbai-node/common"
-	"github.com/nebulaai/nbai-node/rlp"
-	"github.com/nebulaai/nbai-node/trie"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/ethereum/go-ethereum/trie"
 )
 
 type DerivableList interface {

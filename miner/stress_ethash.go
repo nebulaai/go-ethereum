@@ -28,20 +28,20 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/nebulaai/nbai-node/accounts/keystore"
-	"github.com/nebulaai/nbai-node/common"
-	"github.com/nebulaai/nbai-node/common/fdlimit"
-	"github.com/nebulaai/nbai-node/consensus/ethash"
-	"github.com/nebulaai/nbai-node/core"
-	"github.com/nebulaai/nbai-node/core/types"
-	"github.com/nebulaai/nbai-node/crypto"
-	"github.com/nebulaai/nbai-node/eth"
-	"github.com/nebulaai/nbai-node/eth/downloader"
-	"github.com/nebulaai/nbai-node/log"
-	"github.com/nebulaai/nbai-node/node"
-	"github.com/nebulaai/nbai-node/p2p"
-	"github.com/nebulaai/nbai-node/p2p/enode"
-	"github.com/nebulaai/nbai-node/params"
+	"github.com/ethereum/go-ethereum/accounts/keystore"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/common/fdlimit"
+	"github.com/ethereum/go-ethereum/consensus/ethash"
+	"github.com/ethereum/go-ethereum/core"
+	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/ethereum/go-ethereum/eth"
+	"github.com/ethereum/go-ethereum/eth/downloader"
+	"github.com/ethereum/go-ethereum/log"
+	"github.com/ethereum/go-ethereum/node"
+	"github.com/ethereum/go-ethereum/p2p"
+	"github.com/ethereum/go-ethereum/p2p/enode"
+	"github.com/ethereum/go-ethereum/params"
 )
 
 func main() {
@@ -69,7 +69,7 @@ func main() {
 		if err != nil {
 			panic(err)
 		}
-		defer node.Stop()
+		defer node.Close()
 
 		for node.Server().NodeInfo().Ports.Listener == 0 {
 			time.Sleep(250 * time.Millisecond)
@@ -179,10 +179,12 @@ func makeMiner(genesis *core.Genesis) (*node.Node, error) {
 			TxPool:          core.DefaultTxPoolConfig,
 			GPO:             eth.DefaultConfig.GPO,
 			Ethash:          eth.DefaultConfig.Ethash,
-			MinerGasFloor:   genesis.GasLimit * 9 / 10,
-			MinerGasCeil:    genesis.GasLimit * 11 / 10,
-			MinerGasPrice:   big.NewInt(1),
-			MinerRecommit:   time.Second,
+			Miner: Config{
+				GasFloor: genesis.GasLimit * 9 / 10,
+				GasCeil:  genesis.GasLimit * 11 / 10,
+				GasPrice: big.NewInt(1),
+				Recommit: time.Second,
+			},
 		})
 	}); err != nil {
 		return nil, err

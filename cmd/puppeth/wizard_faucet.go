@@ -20,8 +20,8 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/nebulaai/nbai-node/accounts/keystore"
-	"github.com/nebulaai/nbai-node/log"
+	"github.com/ethereum/go-ethereum/accounts/keystore"
+	"github.com/ethereum/go-ethereum/log"
 )
 
 // deployFaucet queries the user for various input on deploying a faucet, after
@@ -147,7 +147,7 @@ func (w *wizard) deployFaucet() {
 		infos.node.keyPass = w.readPassword()
 
 		if _, err := keystore.DecryptKey([]byte(infos.node.keyJSON), infos.node.keyPass); err != nil {
-			log.Error("Failed to decrypt key with given passphrase")
+			log.Error("Failed to decrypt key with given password")
 			infos.node.keyJSON = ""
 			infos.node.keyPass = ""
 		}
