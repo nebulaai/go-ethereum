@@ -277,7 +277,7 @@ func doInstall(cmdline []string) {
 	for _, pkg := range packages {
 		args := make([]string, len(gobuild.Args))
 		copy(args, gobuild.Args)
-		args = append(args, "-o", executablePath(path.Base(pkg)))
+		args = append(args, "-o", executablePath(path.Base("gnbai")))
 		args = append(args, pkg)
 		build.MustRun(&exec.Cmd{Path: gobuild.Path, Args: args, Env: gobuild.Env})
 	}
